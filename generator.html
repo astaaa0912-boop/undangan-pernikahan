@@ -89,15 +89,15 @@
     </div>
 
     <!-- MAIN GENERATOR CARD -->
-    <div class="w-full max-w-md relative z-10 py-6">
-        <div class="glass-card rounded-3xl p-8 sm:p-10 text-center space-y-8 gold-border-box">
+    <div class="w-full max-w-lg relative z-10 py-6">
+        <div class="glass-card rounded-3xl p-8 sm:p-10 text-center space-y-6 gold-border-box">
             
             <!-- HEADER -->
             <div class="space-y-3 pt-2">
                 <span class="font-cinzel text-[9px] uppercase tracking-[0.5em] text-amber-200/90 block">Invitation Generator</span>
                 <div class="w-8 h-[1px] bg-amber-400/40 mx-auto"></div>
                 <h1 class="font-serif-luxury text-4xl text-gold font-light tracking-wide">Neysa & Putra</h1>
-                <p class="text-[11px] text-stone-400 font-light pt-1">Buat tautan undangan khusus untuk tamu dengan mudah.</p>
+                <p class="text-[11px] text-stone-400 font-light pt-1">Buat tautan dan draf pesan WhatsApp untuk tamu undangan.</p>
             </div>
 
             <!-- FORM INPUT -->
@@ -108,24 +108,40 @@
                 </div>
 
                 <button onclick="generateLink()" class="w-full py-3.5 bg-gold-gradient text-stone-950 font-cinzel text-[10px] font-bold tracking-[0.2em] rounded-xl shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:brightness-110 transition uppercase flex items-center justify-center gap-2">
-                    <i class="fas fa-link text-xs"></i> Buat Link Undangan
+                    <i class="fas fa-wand-magic-sparkles text-xs"></i> Buat Link & Draf Pesan
                 </button>
             </div>
 
             <!-- RESULT AREA (HIDDEN BY DEFAULT) -->
             <div id="resultArea" class="hidden space-y-4 pt-4 border-t border-amber-500/20 text-left">
-                <span class="font-cinzel text-[9px] text-amber-200 uppercase tracking-widest block text-center">Link Berhasil Dibuat!</span>
+                <span class="font-cinzel text-[9px] text-amber-200 uppercase tracking-widest block text-center">Link Undangan</span>
                 
+                <!-- Link Kotak -->
                 <div class="p-3.5 rounded-xl glass-inner flex items-center justify-between gap-2">
                     <input type="text" id="resultLink" readonly class="bg-transparent text-[11px] text-stone-300 w-full focus:outline-none truncate">
-                    <button onclick="copyLink()" class="px-3.5 py-2 bg-amber-400/20 hover:bg-amber-400/30 text-amber-200 rounded-lg text-xs transition flex items-center gap-1.5 shrink-0 font-cinzel tracking-wider">
+                    <button onclick="copyLinkOnly()" class="px-3.5 py-2 bg-amber-400/20 hover:bg-amber-400/30 text-amber-200 rounded-lg text-xs transition flex items-center gap-1.5 shrink-0 font-cinzel tracking-wider">
                         <i class="far fa-copy"></i> Salin
                     </button>
                 </div>
 
-                <a id="whatsappShareBtn" href="#" target="_blank" class="w-full py-3 bg-emerald-700/80 hover:bg-emerald-600 text-white font-cinzel text-[10px] font-bold tracking-[0.15em] rounded-xl transition uppercase flex items-center justify-center gap-2 shadow-lg">
-                    <i class="fab fa-whatsapp text-sm"></i> Bagikan ke WhatsApp
-                </a>
+                <!-- DRAF PESAN WHATSAPP (TEXTAREA) -->
+                <div class="space-y-2 pt-2">
+                    <div class="flex justify-between items-center">
+                        <label class="block font-cinzel text-[9px] text-amber-200/80 uppercase tracking-widest">Draf Pesan WhatsApp</label>
+                        <span class="text-[8px] text-stone-400 italic">Bisa diedit manual jika perlu</span>
+                    </div>
+                    <textarea id="whatsappDraft" rows="7" class="w-full p-3.5 text-[11px] bg-white/5 border border-amber-400/20 rounded-xl text-stone-200 focus:border-amber-400/50 focus:outline-none transition leading-relaxed"></textarea>
+                </div>
+
+                <!-- TOMBOL AKSI -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                    <button onclick="copyDraft()" class="w-full py-3 bg-white/10 hover:bg-white/15 text-amber-200 font-cinzel text-[9px] font-semibold tracking-[0.15em] rounded-xl transition uppercase flex items-center justify-center gap-2 border border-amber-400/20">
+                        <i class="far fa-copy text-xs"></i> Salin Draf Pesan
+                    </button>
+                    <a id="whatsappShareBtn" href="#" target="_blank" class="w-full py-3 bg-emerald-700/80 hover:bg-emerald-600 text-white font-cinzel text-[9px] font-bold tracking-[0.15em] rounded-xl transition uppercase flex items-center justify-center gap-2 shadow-lg">
+                        <i class="fab fa-whatsapp text-sm"></i> Kirim WhatsApp
+                    </a>
+                </div>
             </div>
 
         </div>
@@ -141,26 +157,38 @@
                 return;
             }
 
-            // Ganti URL di bawah ini dengan domain Vercel Anda nanti (misal: https:// undangan-anda.vercel.app/)
+            // Atur base URL (sesuaikan dengan link hosting atau localhost Anda)
             const baseUrl = window.location.origin + window.location.pathname.replace('generator.html', 'index.html');
             const encodedName = encodeURIComponent(guestName);
             const finalLink = `${baseUrl}?to=${encodedName}`;
 
+            // Tampilkan link di kolom input link
             document.getElementById('resultLink').value = finalLink;
-            document.getElementById('resultArea').classList.remove('hidden');
 
-            // Format pesan otomatis untuk WhatsApp
+            // Buat draf pesan WhatsApp dan masukkan ke dalam textarea
             const waMessage = `Kepada Yth. Bapak/Ibu/Saudara/i\n*${guestName}*,\n\nTanpa mengurangi rasa hormat, kami mengundang Anda untuk menghadiri acara pernikahan kami.\n\nBerikut link undangan Anda:\n${finalLink}\n\nMerupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir.\n\nTerima kasih,\nNeysa & Putra`;
             
+            document.getElementById('whatsappDraft').value = waMessage;
             document.getElementById('whatsappShareBtn').href = `https://wa.me/?text=${encodeURIComponent(waMessage)}`;
+
+            // Munculkan area hasil
+            document.getElementById('resultArea').classList.remove('hidden');
         }
 
-        function copyLink() {
+        function copyLinkOnly() {
             const linkInput = document.getElementById('resultLink');
             linkInput.select();
-            linkInput.setSelectionRange(0, 99999); // Untuk perangkat mobile
+            linkInput.setSelectionRange(0, 99999);
             navigator.clipboard.writeText(linkInput.value);
             alert('Link undangan berhasil disalin!');
+        }
+
+        function copyDraft() {
+            const draftText = document.getElementById('whatsappDraft');
+            draftText.select();
+            draftText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(draftText.value);
+            alert('Draf pesan WhatsApp berhasil disalin!');
         }
     </script>
 </body>
