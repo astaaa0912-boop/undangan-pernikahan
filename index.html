@@ -55,11 +55,11 @@
 
         /* BACKGROUND HERO & SLIDE 1 COVER */
         .bg-hero {
-            background: linear-gradient(to bottom, rgba(5, 2, 3, 0.45) 0%, rgba(5, 2, 3, 0.75) 60%, rgba(5, 2, 3, 0.98) 100%), 
-                        url("images/eca-putra.jpeg");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background: linear-gradient(to bottom, rgba(5, 2, 3, 0.6) 0%, rgba(5, 2, 3, 0.85) 60%, rgba(5, 2, 3, 0.98) 100%), 
+                        url("images/eca-putra.jpeg") !important;
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
         }
 
         /* GLASS CARD DENGAN BACKDROP ELEGANT */
@@ -162,7 +162,7 @@
                     <source src="audio/backsound.mp3" type="audio/mpeg">
                 </audio>
 
-                <!-- SLIDE 1: HOME / COUNTDOWN (DENGAN BACKGROUND FOTO MEMPELAI / bg-hero) -->
+                <!-- SLIDE 1: HOME / COUNTDOWN (DENGAN BACKGROUND FOTO MEMPELAI) -->
                 <section id="home" data-aos="fade-up" data-aos-duration="1200" class="glass-card rounded-3xl p-8 min-h-[82vh] flex flex-col justify-between text-center relative overflow-hidden bg-hero gold-border-box">
                     <div class="space-y-3 pt-4 relative z-10">
                         <span class="font-cinzel text-[9px] tracking-[0.5em] text-amber-200/90 uppercase block">Save The Date</span>
@@ -285,12 +285,12 @@
                     </div>
                 </section>
 
-                <!-- SLIDE 5: UCAPAN & RSVP KE WHATSAPP -->
+                <!-- SLIDE 5: UCAPAN & DOA KE WHATSAPP (TANPA RSVP) -->
                 <section id="rsvp" data-aos="fade-up" data-aos-duration="1000" class="glass-card rounded-3xl p-9 text-center space-y-6">
                     <div class="space-y-2">
                         <span class="font-cinzel text-[9px] tracking-[0.4em] text-amber-300/80 uppercase">Warm Wishes</span>
                         <h2 class="font-serif-luxury text-4xl text-gold font-light">Send via WhatsApp</h2>
-                        <p class="text-[11px] text-stone-400 font-light leading-relaxed">Kirimkan ucapan dan konfirmasi kehadiran Anda langsung ke WhatsApp mempelai.</p>
+                        <p class="text-[11px] text-stone-400 font-light leading-relaxed">Kirimkan ucapan dan doa restu terbaik Anda langsung ke WhatsApp mempelai.</p>
                     </div>
 
                     <form id="whatsappForm" onsubmit="sendToWhatsApp(event)" class="space-y-4 text-left">
@@ -300,16 +300,8 @@
                         </div>
 
                         <div>
-                            <label class="block font-cinzel text-[9px] text-amber-200/80 uppercase tracking-widest mb-1.5">Konfirmasi Kehadiran (RSVP)</label>
-                            <select id="attendanceStatus" class="w-full px-4 py-3 text-xs bg-[#0b0406] border border-amber-400/20 rounded-xl text-white focus:border-amber-400/50 focus:outline-none transition">
-                                <option value="Hadir (Hadir di Acara)">Hadir</option>
-                                <option value="Maaf, Berhalangan Hadir">Berhalangan Hadir</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label class="block font-cinzel text-[9px] text-amber-200/80 uppercase tracking-widest mb-1.5">Pesan & Doa</label>
-                            <textarea id="senderMessage" rows="3" required class="w-full px-4 py-3 text-xs bg-white/5 border border-amber-400/20 rounded-xl text-white placeholder-stone-600 focus:border-amber-400/50 focus:outline-none transition" placeholder="Tulis ucapan selamat..."></textarea>
+                            <label class="block font-cinzel text-[9px] text-amber-200/80 uppercase tracking-widest mb-1.5">Pesan & Doa Restu</label>
+                            <textarea id="senderMessage" rows="4" required class="w-full px-4 py-3 text-xs bg-white/5 border border-amber-400/20 rounded-xl text-white placeholder-stone-600 focus:border-amber-400/50 focus:outline-none transition" placeholder="Tuliskan ucapan dan doa restu yang panjang dan bermakna..."></textarea>
                         </div>
 
                         <button type="submit" class="w-full py-3.5 bg-gold-gradient text-stone-950 font-cinzel text-[10px] font-bold tracking-[0.2em] rounded-xl shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:brightness-110 transition uppercase flex items-center justify-center gap-2">
@@ -399,20 +391,20 @@
             alert('Nomor rekening berhasil disalin!');
         }
 
-        // FUNGSI KIRIM KE WHATSAPP
+        // FUNGSI KIRIM KE WHATSAPP DENGAN FORMAT PESAN PANJANG & ELEGAN
         function sendToWhatsApp(event) {
             event.preventDefault();
             
             // Ganti nomor WhatsApp tujuan di bawah ini (gunakan format internasional tanpa tanda +, contoh: 6281234567890)
-            const phoneNumber = "6281234567890"; 
+            const phoneNumber = "6281275018663"; 
             
             const name = document.getElementById('senderName').value;
-            const attendance = document.getElementById('attendanceStatus').value;
             const message = document.getElementById('senderMessage').value;
 
-            const text = `Halo, saya ingin mengirimkan ucapan untuk pernikahan Neysa & Putra:%0A%0A*Nama:* ${encodeURIComponent(name)}%0A*Status:* ${encodeURIComponent(attendance)}%0A*Pesan:* ${encodeURIComponent(message)}`;
+            // Draft pesan yang lebih panjang, formal, dan penuh doa
+            const text = `Kepada Yang Terhormat Mempelai,\nNeysa & Safrizal,\n\nSelamat berbahagia atas terselenggaranya pernikahan suci ini. Semoga Allah SWT senantiasa melimpahkan rahmat, keberkahan, serta kedamaian di dalam rumah tangga yang baru saja dibangun.\n\nBerikut adalah ucapan dan doa restu yang ingin saya sampaikan:\n\n"${message}"\n\nSekali lagi, selamat menempuh hidup baru dan menjadi keluarga yang sakinah, mawaddah, warahmah.\n\nHormat saya,\n*${name}*`;
 
-            const whatsappURL = `https://wa.me/${phoneNumber}?text=${text}`;
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
             window.open(whatsappURL, '_blank');
         }
 
