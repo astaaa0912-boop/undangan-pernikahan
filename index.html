@@ -76,12 +76,16 @@
             margin-bottom: 2.5rem;
             transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
-
+        body.cover-active {
+            overflow: hidden !important;
+            height: 100vh !important;
+            touch-action: none;
+        }
        .bg-hero {
             background: linear-gradient(to bottom, rgba(7, 1, 3, 0.4), rgba(7, 1, 3, 0.85)), 
                         url("images/eca-putra.jpeg");
-            background-size: cover !important;
-            background-position: center center !important;
+            background-size: 100% 100% !important;
+            background-position: center !important;
             background-repeat: no-repeat !important;
         }
 
@@ -101,6 +105,11 @@
             0% { transform: translate(0, 0) scale(1); }
             100% { transform: translate(30px, 40px) scale(1.15); }
         }
+        @supports (-webkit-touch-callout: none) {
+        .hero-fullscreen {
+            min-height: -webkit-fill-available;
+        }
+    }
 
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: #070103; }
