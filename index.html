@@ -285,17 +285,26 @@
                     </div>
                 </section>
 
-                <!-- SLIDE 5: UCAPAN & RSVP -->
+                <!-- SLIDE 5: UCAPAN & RSVP KE WHATSAPP -->
                 <section id="rsvp" data-aos="fade-up" data-aos-duration="1000" class="glass-card rounded-3xl p-9 text-center space-y-6">
                     <div class="space-y-2">
                         <span class="font-cinzel text-[9px] tracking-[0.4em] text-amber-300/80 uppercase">Warm Wishes</span>
-                        <h2 class="font-serif-luxury text-4xl text-gold font-light">Blessings & Prayers</h2>
+                        <h2 class="font-serif-luxury text-4xl text-gold font-light">Send via WhatsApp</h2>
+                        <p class="text-[11px] text-stone-400 font-light leading-relaxed">Kirimkan ucapan dan konfirmasi kehadiran Anda langsung ke WhatsApp mempelai.</p>
                     </div>
 
-                    <form id="wishForm" onsubmit="handleWishSubmit(event)" class="space-y-4 text-left">
+                    <form id="whatsappForm" onsubmit="sendToWhatsApp(event)" class="space-y-4 text-left">
                         <div>
                             <label class="block font-cinzel text-[9px] text-amber-200/80 uppercase tracking-widest mb-1.5">Nama Anda</label>
                             <input type="text" id="senderName" required class="w-full px-4 py-3 text-xs bg-white/5 border border-amber-400/20 rounded-xl text-white placeholder-stone-600 focus:border-amber-400/50 focus:outline-none transition">
+                        </div>
+
+                        <div>
+                            <label class="block font-cinzel text-[9px] text-amber-200/80 uppercase tracking-widest mb-1.5">Konfirmasi Kehadiran (RSVP)</label>
+                            <select id="attendanceStatus" class="w-full px-4 py-3 text-xs bg-[#0b0406] border border-amber-400/20 rounded-xl text-white focus:border-amber-400/50 focus:outline-none transition">
+                                <option value="Hadir (Hadir di Acara)">Hadir</option>
+                                <option value="Maaf, Berhalangan Hadir">Berhalangan Hadir</option>
+                            </select>
                         </div>
 
                         <div>
@@ -303,28 +312,10 @@
                             <textarea id="senderMessage" rows="3" required class="w-full px-4 py-3 text-xs bg-white/5 border border-amber-400/20 rounded-xl text-white placeholder-stone-600 focus:border-amber-400/50 focus:outline-none transition" placeholder="Tulis ucapan selamat..."></textarea>
                         </div>
 
-                        <button type="submit" class="w-full py-3.5 bg-gold-gradient text-stone-950 font-cinzel text-[10px] font-bold tracking-[0.2em] rounded-xl shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:brightness-110 transition uppercase">
-                            Kirim Ucapan
+                        <button type="submit" class="w-full py-3.5 bg-gold-gradient text-stone-950 font-cinzel text-[10px] font-bold tracking-[0.2em] rounded-xl shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:brightness-110 transition uppercase flex items-center justify-center gap-2">
+                            <i class="fab fa-whatsapp text-sm"></i> Kirim Ucapan via WhatsApp
                         </button>
                     </form>
-
-                    <!-- UCAPAN STREAM -->
-                    <div id="wishesContainer" class="mt-6 space-y-3 max-h-72 overflow-y-auto pr-1 text-left">
-                        <div class="p-4 glass-inner rounded-2xl space-y-1">
-                            <div class="flex justify-between items-center">
-                                <span class="font-serif-luxury text-sm font-medium text-amber-200">Fahrezi</span>
-                                <span class="text-[8px] text-stone-500 font-light">2 jam yang lalu</span>
-                            </div>
-                            <p class="text-[11px] text-stone-300 leading-relaxed font-light">Selamat untuk Neysa & Putra! Semoga menjadi keluarga yang sakinah, mawaddah, warahmah.</p>
-                        </div>
-                        <div class="p-4 glass-inner rounded-2xl space-y-1">
-                            <div class="flex justify-between items-center">
-                                <span class="font-serif-luxury text-sm font-medium text-amber-200">Adit & Team</span>
-                                <span class="text-[8px] text-stone-500 font-light">5 jam yang lalu</span>
-                            </div>
-                            <p class="text-[11px] text-stone-300 leading-relaxed font-light">Happy wedding guys! Lancar sampai hari H yaa.</p>
-                        </div>
-                    </div>
                 </section>
 
                 <!-- FLOATING NAVBAR -->
@@ -408,30 +399,21 @@
             alert('Nomor rekening berhasil disalin!');
         }
 
-        // SIMULASI KIRIM UCAPAN STATIS
-        function handleWishSubmit(event) {
+        // FUNGSI KIRIM KE WHATSAPP
+        function sendToWhatsApp(event) {
             event.preventDefault();
+            
+            // Ganti nomor WhatsApp tujuan di bawah ini (gunakan format internasional tanpa tanda +, contoh: 6281234567890)
+            const phoneNumber = "6281234567890"; 
+            
             const name = document.getElementById('senderName').value;
+            const attendance = document.getElementById('attendanceStatus').value;
             const message = document.getElementById('senderMessage').value;
-            const container = document.getElementById('wishesContainer');
 
-            const newWishHTML = `
-                <div class="p-4 glass-inner rounded-2xl space-y-1" data-aos="fade-up">
-                    <div class="flex justify-between items-center">
-                        <span class="font-serif-luxury text-sm font-medium text-amber-200">${escapeHtml(name)}</span>
-                        <span class="text-[8px] text-stone-500 font-light">Baru saja</span>
-                    </div>
-                    <p class="text-[11px] text-stone-300 leading-relaxed font-light">${escapeHtml(message)}</p>
-                </div>
-            `;
+            const text = `Halo, saya ingin mengirimkan ucapan untuk pernikahan Neysa & Putra:%0A%0A*Nama:* ${encodeURIComponent(name)}%0A*Status:* ${encodeURIComponent(attendance)}%0A*Pesan:* ${encodeURIComponent(message)}`;
 
-            container.insertAdjacentHTML('afterbegin', newWishHTML);
-            document.getElementById('senderMessage').value = '';
-            AOS.refresh();
-        }
-
-        function escapeHtml(text) {
-            return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${text}`;
+            window.open(whatsappURL, '_blank');
         }
 
         // COUNTDOWN TIMER
