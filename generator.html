@@ -126,7 +126,7 @@
             if (!nameInput) nameInput = "Nama Tamu";
             
             let currentUrl = window.location.href;
-            let baseUrl = currentUrl.substring(0, currentUrl.lastIndexOf('/')) + '/index_2.html';
+            let baseUrl = currentUrl.substring(0, currentUrl.lastIndexOf('/')) + '/index.html';
             let encodedName = encodeURIComponent(nameInput);
             let fullLink = `${baseUrl}?to=${encodedName}`;
 
