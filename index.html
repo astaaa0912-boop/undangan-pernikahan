@@ -9,63 +9,78 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
     <style>
         body { 
             font-family: 'Montserrat', sans-serif; 
-            background-color: #1c080d;
+            background-color: #fcf8f5; /* Latar belakang cream lembut */
             overflow-x: hidden;
+            color: #4a3b32;
         }
 
         body.cover-active {
             overflow: hidden !important;
         }
 
-        .bg-luxury-atmosphere {
+        /* Latar Belakang Cream & Maroon Hangat */
+        .bg-cream-maroon {
             background-image: 
-                radial-gradient(circle at 50% 0%, rgba(128, 0, 32, 0.5) 0%, transparent 60%),
-                radial-gradient(circle at 90% 40%, rgba(245, 230, 211, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 10% 70%, rgba(80, 10, 22, 0.7) 0%, transparent 50%),
-                radial-gradient(circle at 50% 100%, rgba(28, 8, 13, 0.98) 0%, transparent 80%);
+                radial-gradient(circle at 50% 0%, rgba(128, 0, 32, 0.08) 0%, transparent 60%),
+                radial-gradient(circle at 90% 40%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 10% 80%, rgba(128, 0, 32, 0.06) 0%, transparent 60%),
+                linear-gradient(135deg, #fcf8f5 0%, #f4ece4 100%);
             background-attachment: fixed;
         }
 
         .font-serif-luxury { font-family: 'Cormorant Garamond', serif; }
         .font-cinzel { font-family: 'Cinzel', serif; }
         
+        /* Perbaikan Font Merangkai agar tidak terpotong */
+        .font-script { 
+            font-family: 'Great Vibes', cursive; 
+            display: inline-block;
+            padding: 0.1em 0.3em;
+            line-height: 1.3;
+            overflow: visible;
+        }
+        
         html { scroll-behavior: smooth; }
 
+        .text-maroon {
+            color: #701a24;
+        }
+
         .text-gold {
-            background: linear-gradient(135deg, #FFF1C1 0%, #D4AF37 35%, #FFE8A3 60%, #AA771C 100%);
+            background: linear-gradient(135deg, #966B13 0%, #B8860B 35%, #D4AF37 60%, #800020 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.25));
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
         }
         
         .bg-gold-gradient {
-            background: linear-gradient(135deg, #D4AF37 0%, #FFF3D6 25%, #C59B27 65%, #966B13 100%);
+            background: linear-gradient(135deg, #D4AF37 0%, #f3e0aa 25%, #C59B27 65%, #966B13 100%);
         }
 
-        .glass-card-pearl {
-            background: linear-gradient(145deg, rgba(245, 230, 211, 0.08) 0%, rgba(55, 12, 22, 0.75) 100%);
-            backdrop-filter: blur(25px) saturate(180%);
-            -webkit-backdrop-filter: blur(25px) saturate(180%);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8),
-                        0 0 25px rgba(128, 0, 32, 0.25),
-                        inset 0 1px 2px rgba(255, 241, 193, 0.3),
-                        inset 0 -1px 2px rgba(0, 0, 0, 0.8);
+        /* Kartu Glassmorphism Tema Cream & Maroon */
+        .glass-card-cream {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 241, 235, 0.85) 100%);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(128, 0, 32, 0.15);
+            box-shadow: 0 20px 40px -15px rgba(112, 26, 36, 0.1),
+                        0 0 25px rgba(212, 175, 55, 0.1),
+                        inset 0 1px 2px rgba(255, 255, 255, 0.8);
         }
 
         .glass-inner {
-            background: linear-gradient(135deg, rgba(245, 230, 211, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border: 1px solid rgba(245, 230, 211, 0.15);
-            box-shadow: inset 0 1px 1px rgba(255, 241, 193, 0.2), 0 8px 20px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, rgba(128, 0, 32, 0.03) 0%, rgba(212, 175, 55, 0.05) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(128, 0, 32, 0.1);
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6), 0 4px 15px rgba(112, 26, 36, 0.05);
         }
 
         .sticky-card {
@@ -87,12 +102,13 @@
         }
 
         .bg-hero {
-            background: linear-gradient(to bottom, rgba(28, 8, 13, 0.4), rgba(28, 8, 13, 0.88)), 
+            background: linear-gradient(to bottom, rgba(74, 59, 50, 0.3), rgba(112, 26, 36, 0.75)), 
                         url("images/Neysa dan Putra.jpeg");
             background-size: cover;
             background-position: center 30%;
         }
 
+        /* Kelopak Bunga Emas & Maroon */
         .petals-container {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -102,12 +118,13 @@
         }
         .petal {
             position: absolute;
-            background: rgba(245, 230, 211, 0.6);
+            background: rgba(128, 0, 32, 0.4);
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
             border-radius: 150% 0 150% 0;
             animation: fall linear infinite;
         }
         @keyframes fall {
-            0% { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 1; }
+            0% { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0.9; }
             100% { transform: translateY(105vh) translateX(50px) rotate(360deg); opacity: 0; }
         }
 
@@ -124,9 +141,9 @@
             position: absolute;
             width: 20px;
             height: 14px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="%23f5e6d3"><path d="M485.5 145.4c-28.7-18.7-65.7-32.3-108.5-40.4-11.2-2.1-22.7-3.8-34.4-5.2C327 49 285.8 16 237.4 16c-38.6 0-64 19.2-64 51.2 0 17.5 7.8 33.4 20.2 44.8-49.3 10.6-92.4 26.5-126.3 46.2C34.3 175.7 16 200.7 16 228.8c0 42.4 57.6 77.2 135.2 96-7.5 19.3-11.6 40.5-11.6 62.4 0 70.7 48.7 128 108.8 128s108.8-57.3 108.8-128c0-21.9-4.1-43.1-11.6-62.4 56.4-13.8 98.7-36.8 120-65.6 15.3-20.8 23.3-46.3 23.3-72.2 0-21.1-7.1-40.8-23.4-51.8z"/></svg>') no-repeat center;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="%23800020"><path d="M485.5 145.4c-28.7-18.7-65.7-32.3-108.5-40.4-11.2-2.1-22.7-3.8-34.4-5.2C327 49 285.8 16 237.4 16c-38.6 0-64 19.2-64 51.2 0 17.5 7.8 33.4 20.2 44.8-49.3 10.6-92.4 26.5-126.3 46.2C34.3 175.7 16 200.7 16 228.8c0 42.4 57.6 77.2 135.2 96-7.5 19.3-11.6 40.5-11.6 62.4 0 70.7 48.7 128 108.8 128s108.8-57.3 108.8-128c0-21.9-4.1-43.1-11.6-62.4 56.4-13.8 98.7-36.8 120-65.6 15.3-20.8 23.3-46.3 23.3-72.2 0-21.1-7.1-40.8-23.4-51.8z"/></svg>') no-repeat center;
             background-size: contain;
-            opacity: 0.75;
+            opacity: 0.8;
             animation: flyAcross 18s linear infinite;
         }
         .bird.delayed {
@@ -160,26 +177,26 @@
         .glow-orb {
             position: fixed;
             border-radius: 50%;
-            filter: blur(90px);
+            filter: blur(100px);
             pointer-events: none;
             z-index: 0;
-            opacity: 0.4;
+            opacity: 0.35;
             animation: floatGlow 10s infinite alternate ease-in-out;
         }
-        .orb-1 { top: 10%; left: -10%; width: 350px; height: 350px; background: rgba(140, 15, 38, 0.6); }
-        .orb-2 { bottom: 15%; right: -5%; width: 400px; height: 400px; background: rgba(212, 175, 55, 0.2); animation-delay: -5s; }
+        .orb-1 { top: 5%; left: -10%; width: 400px; height: 400px; background: rgba(128, 0, 32, 0.15); }
+        .orb-2 { bottom: 10%; right: -5%; width: 450px; height: 450px; background: rgba(212, 175, 55, 0.2); animation-delay: -5s; }
 
         @keyframes floatGlow {
             0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(30px, 40px) scale(1.15); }
+            100% { transform: translate(25px, 35px) scale(1.1); }
         }
 
         ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: #1c080d; }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(#D4AF37, #966B13); border-radius: 4px; }
+        ::-webkit-scrollbar-track { background: #fcf8f5; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(#800020, #D4AF37); border-radius: 4px; }
     </style>
 </head>
-<body class="bg-luxury-atmosphere text-stone-100 antialiased min-h-screen relative cover-active">
+<body class="bg-cream-maroon text-stone-800 antialiased min-h-screen relative cover-active">
 
     <div class="glow-orb orb-1"></div>
     <div class="glow-orb orb-2"></div>
@@ -193,25 +210,25 @@
         </div>
 
         <div class="pt-12 space-y-2 relative z-10">
-            <p class="font-cinzel text-xs uppercase tracking-[0.4em] text-amber-200/90">The Wedding Celebration Of</p>
-            <h1 class="font-serif-luxury text-5xl md:text-7xl text-gold font-normal tracking-wide">Putra & Neysa</h1>
+            <p class="font-cinzel text-xs uppercase tracking-[0.4em] text-amber-200">The Wedding Celebration Of</p>
+            <h1 class="font-script text-6xl md:text-8xl text-stone-100 font-normal tracking-wide drop-shadow-md py-2">Putra & Neysa</h1>
         </div>
         
-        <div id="envelopeCard" class="w-full max-w-xs my-auto p-7 rounded-3xl glass-card-pearl space-y-3 relative overflow-hidden z-10 shadow-2xl envelope-wrapper border border-amber-400/40 transition-all duration-700">
-            <div class="absolute -top-12 -left-12 w-36 h-36 bg-amber-200/20 rotate-45 blur-xl pointer-events-none"></div>
+        <div id="envelopeCard" class="w-full max-w-xs my-auto p-7 rounded-3xl glass-card-cream text-stone-800 space-y-3 relative overflow-visible z-10 shadow-2xl envelope-wrapper border border-maroon/20 transition-all duration-700">
+            <div class="absolute -top-12 -left-12 w-36 h-36 bg-amber-500/10 rotate-45 blur-xl pointer-events-none"></div>
             
-            <div class="w-14 h-14 mx-auto bg-gradient-to-tr from-amber-500/30 to-amber-200/20 rounded-full flex items-center justify-center border border-amber-300/50 shadow-inner mb-1">
-                <i class="fas fa-envelope-open-text text-amber-300 text-xl animate-bounce"></i>
+            <div class="w-14 h-14 mx-auto bg-gradient-to-tr from-maroon/10 to-amber-500/20 rounded-full flex items-center justify-center border border-maroon/20 shadow-inner mb-1">
+                <i class="fas fa-envelope-open-text text-maroon text-xl animate-bounce"></i>
             </div>
 
-            <p class="font-cinzel text-[10px] text-amber-100/80 uppercase tracking-widest">Kepada Yth. Bapak/Ibu/Saudara/i</p>
-            <h2 id="guestNameDisplay" class="font-serif-luxury text-3xl font-semibold text-gold capitalize">Tamu Undangan</h2>
-            <div class="w-12 h-[1px] bg-gradient-to-r from-transparent via-amber-400/50 to-transparent mx-auto"></div>
-            <p class="text-[10px] text-stone-300 italic font-light">*Merupakan suatu kehormatan & kebahagiaan bagi kami</p>
+            <p class="font-cinzel text-[10px] text-stone-500 uppercase tracking-widest">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+            <h2 id="guestNameDisplay" class="font-script text-4xl text-maroon capitalize py-1">Tamu Undangan</h2>
+            <div class="w-12 h-[1px] bg-gradient-to-r from-transparent via-maroon/30 to-transparent mx-auto"></div>
+            <p class="text-[10px] text-stone-500 italic font-light">*Merupakan suatu kehormatan & kebahagiaan bagi kami</p>
         </div>
 
         <div class="pb-10 relative z-10">
-            <button onclick="openInvitation()" class="px-9 py-4 bg-gold-gradient text-stone-950 rounded-full font-cinzel text-xs font-bold tracking-widest shadow-[0_0_30px_rgba(212,175,55,0.6)] hover:shadow-[0_0_40px_rgba(212,175,55,0.9)] transition-all transform active:scale-95 flex items-center gap-3 mx-auto">
+            <button onclick="openInvitation()" class="px-9 py-4 bg-gold-gradient text-stone-900 rounded-full font-cinzel text-xs font-bold tracking-widest shadow-[0_0_25px_rgba(128,0,32,0.25)] hover:shadow-[0_0_35px_rgba(128,0,32,0.4)] transition-all transform active:scale-95 flex items-center gap-3 mx-auto">
                 <i class="fas fa-envelope-open text-xs"></i> Buka Undangan
             </button>
         </div>
@@ -221,19 +238,19 @@
     <div class="w-full min-h-screen flex flex-col lg:flex-row relative z-10">
         
         <!-- Sisi Kiri Desktop -->
-        <div class="hidden lg:flex lg:w-7/12 h-screen sticky top-0 bg-hero bg-cover bg-center flex-col justify-between p-16 text-white border-r border-amber-500/20">
+        <div class="hidden lg:flex lg:w-7/12 h-screen sticky top-0 bg-hero bg-cover bg-center flex-col justify-between p-16 text-white border-r border-maroon/20">
             <div class="space-y-3">
                 <span class="font-cinzel text-xs tracking-[0.5em] text-amber-200 uppercase">The Wedding Invitation</span>
-                <div class="w-20 h-[1px] bg-gradient-to-r from-amber-400 to-transparent"></div>
+                <div class="w-20 h-[1px] bg-gradient-to-r from-amber-300 to-transparent"></div>
             </div>
 
             <div class="space-y-4">
-                <h1 class="font-serif-luxury text-7xl text-gold font-normal drop-shadow-2xl">Putra & Neysa</h1>
+                <h1 class="font-script text-8xl text-stone-100 font-normal drop-shadow-2xl py-3">Putra & Neysa</h1>
                 <p class="font-cinzel text-sm tracking-[0.3em] text-stone-200 uppercase">Sabtu, 21 November 2026</p>
             </div>
 
-            <div class="text-xs font-cinzel text-amber-200/60 tracking-widest flex items-center gap-3">
-                <i class="fas fa-gem text-amber-400/70"></i> &copy; 2026 Putra & Neysa. All Rights Reserved.
+            <div class="text-xs font-cinzel text-amber-200/80 tracking-widest flex items-center gap-3">
+                <i class="fas fa-gem text-amber-300"></i> &copy; 2026 Putra & Neysa. All Rights Reserved.
             </div>
         </div>
 
@@ -242,7 +259,7 @@
             <div class="w-full max-w-md relative pb-24">
 
                 <!-- TOMBOL AUDIO -->
-                <button id="musicToggle" onclick="toggleAudio()" class="hidden fixed top-6 right-6 lg:right-12 z-40 w-11 h-11 glass-card-pearl text-amber-300 rounded-full shadow-2xl flex items-center justify-center transition active:scale-90 border border-amber-400/40">
+                <button id="musicToggle" onclick="toggleAudio()" class="hidden fixed top-6 right-6 lg:right-12 z-40 w-11 h-11 glass-card-cream text-maroon rounded-full shadow-xl flex items-center justify-center transition active:scale-90 border border-maroon/30">
                     <i id="musicIcon" class="fas fa-music animate-pulse text-xs"></i>
                 </button>
                 <audio id="bgMusic" loop preload="auto">
@@ -250,176 +267,176 @@
                 </audio>
 
                 <!-- SECTION 1: HOME -->
-                <section id="home" class="sticky-card bg-hero rounded-3xl p-8 min-h-[80vh] lg:min-h-[85vh] flex flex-col justify-between text-center border border-amber-500/30 shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden relative reveal-on-scroll" style="top: 1.5rem; z-index: 10;">
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#1c080d] via-[#1c080d]/40 to-transparent"></div>
+                <section id="home" class="sticky-card bg-hero rounded-3xl p-8 min-h-[80vh] lg:min-h-[85vh] flex flex-col justify-between text-center border border-maroon/20 shadow-[0_20px_40px_rgba(112,26,36,0.15)] overflow-visible relative reveal-on-scroll" style="top: 1.5rem; z-index: 10;">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#4a3b32]/80 via-[#701a24]/40 to-transparent rounded-3xl"></div>
 
                     <div class="relative z-10 pt-6">
                         <span class="font-cinzel text-[10px] tracking-[0.4em] text-amber-200 uppercase">Save The Date</span>
-                        <div class="w-12 h-[1px] bg-amber-400/50 mx-auto my-3"></div>
+                        <div class="w-12 h-[1px] bg-amber-300/60 mx-auto my-3"></div>
                     </div>
 
-                    <div class="relative z-10 space-y-3">
-                        <h1 class="font-serif-luxury text-5xl text-gold font-normal">Putra & Neysa</h1>
-                        <p class="font-cinzel text-xs tracking-widest text-white uppercase">21 November 2026</p>
+                    <div class="relative z-10 space-y-3 text-white">
+                        <h1 class="font-script text-6xl text-stone-100 font-normal drop-shadow py-2">Putra & Neysa</h1>
+                        <p class="font-cinzel text-xs tracking-widest uppercase text-stone-200">21 November 2026</p>
                     </div>
 
-                    <div class="relative z-10 grid grid-cols-4 gap-2 pt-6 border-t border-white/15">
-                        <div class="p-2.5 rounded-2xl glass-inner">
-                            <span id="days" class="font-serif-luxury text-xl font-bold text-amber-200 block">00</span>
-                            <span class="text-[9px] font-cinzel text-stone-300">Hari</span>
+                    <div class="relative z-10 grid grid-cols-4 gap-2 pt-6 border-t border-white/20">
+                        <div class="p-2.5 rounded-2xl glass-inner text-white">
+                            <span id="days" class="font-serif-luxury text-xl font-bold text-amber-300 block">00</span>
+                            <span class="text-[9px] font-cinzel text-stone-200">Hari</span>
                         </div>
-                        <div class="p-2.5 rounded-2xl glass-inner">
-                            <span id="hours" class="font-serif-luxury text-xl font-bold text-amber-200 block">00</span>
-                            <span class="text-[9px] font-cinzel text-stone-300">Jam</span>
+                        <div class="p-2.5 rounded-2xl glass-inner text-white">
+                            <span id="hours" class="font-serif-luxury text-xl font-bold text-amber-300 block">00</span>
+                            <span class="text-[9px] font-cinzel text-stone-200">Jam</span>
                         </div>
-                        <div class="p-2.5 rounded-2xl glass-inner">
-                            <span id="minutes" class="font-serif-luxury text-xl font-bold text-amber-200 block">00</span>
-                            <span class="text-[9px] font-cinzel text-stone-300">Menit</span>
+                        <div class="p-2.5 rounded-2xl glass-inner text-white">
+                            <span id="minutes" class="font-serif-luxury text-xl font-bold text-amber-300 block">00</span>
+                            <span class="text-[9px] font-cinzel text-stone-200">Menit</span>
                         </div>
-                        <div class="p-2.5 rounded-2xl glass-inner">
-                            <span id="seconds" class="font-serif-luxury text-xl font-bold text-amber-200 block">00</span>
-                            <span class="text-[9px] font-cinzel text-stone-300">Detik</span>
+                        <div class="p-2.5 rounded-2xl glass-inner text-white">
+                            <span id="seconds" class="font-serif-luxury text-xl font-bold text-amber-300 block">00</span>
+                            <span class="text-[9px] font-cinzel text-stone-200">Detik</span>
                         </div>
                     </div>
                 </section>
 
                 <!-- SECTION 2: COUPLE -->
-                <section id="couple" class="sticky-card glass-card-pearl rounded-3xl p-8 text-center space-y-8 relative overflow-hidden reveal-on-scroll" style="top: 2.5rem; z-index: 20;">
+                <section id="couple" class="sticky-card glass-card-cream rounded-3xl p-8 text-center space-y-8 relative overflow-visible reveal-on-scroll" style="top: 2.5rem; z-index: 20;">
                     <div class="space-y-4 relative z-10">
-                        <i class="fas fa-crown text-amber-400 text-base"></i>
-                        <p class="text-xs text-stone-200 leading-relaxed italic font-light px-2">
+                        <i class="fas fa-crown text-maroon text-base"></i>
+                        <p class="text-xs text-stone-600 leading-relaxed italic font-light px-2">
                             "Dan di antara tanda-tanda (kebesaran-Nya) ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya."
                         </p>
-                        <span class="font-cinzel text-[10px] text-amber-300 tracking-widest block">(QS. Ar-Rum: 21)</span>
+                        <span class="font-cinzel text-[10px] text-maroon tracking-widest block">(QS. Ar-Rum: 21)</span>
                     </div>
 
-                    <div class="w-24 h-[1px] bg-gradient-to-r from-transparent via-amber-400/50 to-transparent mx-auto"></div>
+                    <div class="w-24 h-[1px] bg-gradient-to-r from-transparent via-maroon/30 to-transparent mx-auto"></div>
 
                     <div class="space-y-10 relative z-10">
                         <div class="space-y-3">
-                            <div class="w-36 h-36 mx-auto rounded-full overflow-hidden p-1 bg-gradient-to-tr from-amber-400/60 to-amber-200/20 shadow-xl">
+                            <div class="w-36 h-36 mx-auto rounded-full overflow-hidden p-1 bg-gradient-to-tr from-maroon to-amber-500 shadow-lg">
                                 <img src="images/Putra.png" alt="Safrizal Saputra" class="w-full h-full object-cover rounded-full">
                             </div>
-                            <span class="font-cinzel text-[10px] tracking-[0.3em] text-amber-300 uppercase block">Mempelai Pria</span>
-                            <h3 class="font-serif-luxury text-3xl text-gold font-semibold">Safrizal Saputra</h3>
-                            <p class="text-[11px] text-stone-300 leading-relaxed">
+                            <span class="font-cinzel text-[10px] tracking-[0.3em] text-maroon uppercase block font-semibold">Mempelai Pria</span>
+                            <h3 class="font-script text-4xl text-gold py-1">Safrizal Saputra</h3>
+                            <p class="text-[11px] text-stone-600 leading-relaxed">
                                 Putra dari<br>
-                                <strong class="text-white font-normal">Bapak ---</strong> & <strong class="text-white font-normal">Ibu ---</strong>
+                                <strong class="text-stone-800 font-medium">Bapak ---</strong> & <strong class="text-stone-800 font-medium">Ibu ---</strong>
                             </p>
                         </div>
 
-                        <div class="font-serif-luxury text-3xl text-amber-300/90 italic">&</div>
+                        <div class="font-script text-4xl text-maroon py-1">&</div>
 
                         <div class="space-y-3">
-                            <div class="w-36 h-36 mx-auto rounded-full overflow-hidden p-1 bg-gradient-to-tr from-amber-400/60 to-amber-200/20 shadow-xl">
+                            <div class="w-36 h-36 mx-auto rounded-full overflow-hidden p-1 bg-gradient-to-tr from-maroon to-amber-500 shadow-lg">
                                 <img src="images/Neysa.PNG" alt="Neysa Phillo Vania Lalela" class="w-full h-full object-cover rounded-full">
                             </div>
-                            <span class="font-cinzel text-[10px] tracking-[0.3em] text-amber-300 uppercase block">Mempelai Wanita</span>
-                            <h3 class="font-serif-luxury text-3xl text-gold font-semibold">Neysa Phillo Vania Lalela</h3>
-                            <p class="text-[11px] text-stone-300 leading-relaxed">
+                            <span class="font-cinzel text-[10px] tracking-[0.3em] text-maroon uppercase block font-semibold">Mempelai Wanita</span>
+                            <h3 class="font-script text-4xl text-gold py-1">Neysa Phillo Vania Lalela</h3>
+                            <p class="text-[11px] text-stone-600 leading-relaxed">
                                 Putri Kedua dari<br>
-                                <strong class="text-white font-normal">Jecky Estefanus Lalela</strong> & <strong class="text-white font-normal">Yuniarti</strong>
+                                <strong class="text-stone-800 font-medium">Jecky Estefanus Lalela</strong> & <strong class="text-stone-800 font-medium">Yuniarti</strong>
                             </p>
                         </div>
                     </div>
                 </section>
 
                 <!-- SECTION 3: EVENT -->
-                <section id="event" class="sticky-card glass-card-pearl rounded-3xl p-8 text-center space-y-8 relative overflow-hidden reveal-on-scroll" style="top: 3.5rem; z-index: 30;">
+                <section id="event" class="sticky-card glass-card-cream rounded-3xl p-8 text-center space-y-8 relative overflow-visible reveal-on-scroll" style="top: 3.5rem; z-index: 30;">
                     <div class="space-y-2">
-                        <span class="font-cinzel text-[10px] tracking-[0.3em] text-amber-300 uppercase">Event Detail</span>
-                        <h2 class="font-serif-luxury text-4xl text-gold">Rangkaian Acara</h2>
+                        <span class="font-cinzel text-[10px] tracking-[0.3em] text-maroon uppercase font-semibold">Event Detail</span>
+                        <h2 class="font-script text-5xl text-gold py-1">Rangkaian Acara</h2>
                     </div>
 
                     <div class="space-y-5">
-                        <div class="p-6 rounded-2xl glass-inner space-y-2">
-                            <h4 class="font-cinzel text-sm text-amber-200 font-semibold tracking-wider">Akad Nikah</h4>
-                            <p class="text-[11px] text-stone-200"><i class="far fa-clock text-amber-300 mr-1.5"></i> 08.00 WIB - Selesai</p>
-                            <div class="w-8 h-[1px] bg-amber-400/30 mx-auto my-2"></div>
-                            <p class="text-xs font-semibold text-white">Tanjung Balai Karimun</p>
-                            <p class="text-[10px] text-stone-300">Jl. Teluk Air</p>
+                        <div class="p-6 rounded-2xl glass-inner space-y-2 text-stone-700">
+                            <h4 class="font-cinzel text-sm text-maroon font-bold tracking-wider">Akad Nikah</h4>
+                            <p class="text-[11px] text-stone-600"><i class="far fa-clock text-maroon mr-1.5"></i> 08.00 WIB - Selesai</p>
+                            <div class="w-8 h-[1px] bg-maroon/20 mx-auto my-2"></div>
+                            <p class="text-xs font-semibold text-stone-800">Tanjung Balai Karimun</p>
+                            <p class="text-[10px] text-stone-500">Jl. Teluk Air</p>
                         </div>
 
-                        <div class="p-6 rounded-2xl glass-inner space-y-2">
-                            <h4 class="font-cinzel text-sm text-amber-200 font-semibold tracking-wider">Resepsi</h4>
-                            <p class="text-[11px] text-stone-200"><i class="far fa-clock text-amber-300 mr-1.5"></i> Sesuai Jadwal</p>
-                            <div class="w-8 h-[1px] bg-amber-400/30 mx-auto my-2"></div>
-                            <p class="text-xs font-semibold text-white">Tanjung Balai Karimun</p>
-                            <p class="text-[10px] text-stone-300">Jl. Teluk Air</p>
+                        <div class="p-6 rounded-2xl glass-inner space-y-2 text-stone-700">
+                            <h4 class="font-cinzel text-sm text-maroon font-bold tracking-wider">Resepsi</h4>
+                            <p class="text-[11px] text-stone-600"><i class="far fa-clock text-maroon mr-1.5"></i> Sesuai Jadwal</p>
+                            <div class="w-8 h-[1px] bg-maroon/20 mx-auto my-2"></div>
+                            <p class="text-xs font-semibold text-stone-800">Tanjung Balai Karimun</p>
+                            <p class="text-[10px] text-stone-500">Jl. Teluk Air</p>
                         </div>
                     </div>
 
-                    <a href="https://maps.app.goo.gl/2VSxSYRFZsMPvjrU8" target="_blank" class="inline-flex items-center gap-2.5 px-7 py-3.5 bg-gold-gradient text-stone-950 font-cinzel text-[11px] font-bold tracking-wider rounded-full shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:brightness-110 transition">
+                    <a href="https://maps.app.goo.gl/2VSxSYRFZsMPvjrU8" target="_blank" class="inline-flex items-center gap-2.5 px-7 py-3.5 bg-gold-gradient text-stone-900 font-cinzel text-[11px] font-bold tracking-wider rounded-full shadow-[0_0_20px_rgba(128,0,32,0.2)] hover:brightness-110 transition">
                         <i class="fas fa-location-dot"></i> Petunjuk Lokasi Google Maps
                     </a>
                 </section>
 
                 <!-- SECTION 4: GIFT -->
-                <section id="gift" class="sticky-card glass-card-pearl rounded-3xl p-8 text-center space-y-6 relative overflow-hidden reveal-on-scroll" style="top: 4.5rem; z-index: 40;">
+                <section id="gift" class="sticky-card glass-card-cream rounded-3xl p-8 text-center space-y-6 relative overflow-visible reveal-on-scroll" style="top: 4.5rem; z-index: 40;">
                     <div class="space-y-2">
-                        <span class="font-cinzel text-[10px] tracking-[0.3em] text-amber-300 uppercase">Wedding Gift</span>
-                        <h2 class="font-serif-luxury text-4xl text-gold">Amplop Digital</h2>
-                        <p class="text-[11px] text-stone-300 leading-relaxed">Doa restu Anda adalah karunia terindah. Namun jika ingin memberi hadiah, Anda dapat mengirimkannya melalui:</p>
+                        <span class="font-cinzel text-[10px] tracking-[0.3em] text-maroon uppercase font-semibold">Wedding Gift</span>
+                        <h2 class="font-script text-5xl text-gold py-1">Amplop Digital</h2>
+                        <p class="text-[11px] text-stone-600 leading-relaxed">Doa restu Anda adalah karunia terindah. Namun jika ingin memberi hadiah, Anda dapat mengirimkannya melalui:</p>
                     </div>
 
-                    <div class="p-6 glass-inner rounded-2xl text-left space-y-3">
-                        <div class="flex justify-between items-center border-b border-amber-400/20 pb-2">
-                            <span class="font-cinzel font-bold text-sm text-amber-200">Bank Transfer</span>
-                            <i class="fas fa-credit-card text-amber-300"></i>
+                    <div class="p-6 glass-inner rounded-2xl text-left space-y-3 text-stone-700">
+                        <div class="flex justify-between items-center border-b border-maroon/15 pb-2">
+                            <span class="font-cinzel font-bold text-sm text-maroon">Bank Transfer</span>
+                            <i class="fas fa-credit-card text-maroon"></i>
                         </div>
                         <div>
-                            <p class="text-[10px] text-stone-300 uppercase tracking-wider">Nomor Rekening</p>
-                            <p id="rekeningBca" class="font-mono text-xl font-bold text-white tracking-wider">0000000000</p>
-                            <p class="text-[11px] text-stone-300 mt-0.5">a.n. Nama Pemilik Rekening</p>
+                            <p class="text-[10px] text-stone-500 uppercase tracking-wider">Nomor Rekening</p>
+                            <p id="rekeningBca" class="font-mono text-xl font-bold text-stone-800 tracking-wider">0000000000</p>
+                            <p class="text-[11px] text-stone-600 mt-0.5">a.n. Nama Pemilik Rekening</p>
                         </div>
-                        <button onclick="copyText('rekeningBca')" class="w-full py-2.5 bg-white/10 hover:bg-white/20 text-amber-200 rounded-xl font-cinzel text-[10px] tracking-wider border border-amber-400/30 transition flex items-center justify-center gap-2">
+                        <button onclick="copyText('rekeningBca')" class="w-full py-2.5 bg-maroon/10 hover:bg-maroon/20 text-maroon rounded-xl font-cinzel text-[10px] font-bold tracking-wider border border-maroon/20 transition flex items-center justify-center gap-2">
                             <i class="far fa-copy"></i> Salin Nomor Rekening
                         </button>
                     </div>
                 </section>
 
                 <!-- SECTION 5: RSVP & GUESTBOOK -->
-                <section id="rsvp" class="sticky-card glass-card-pearl rounded-3xl p-8 text-center space-y-6 relative overflow-hidden reveal-on-scroll" style="top: 5.5rem; z-index: 50;">
+                <section id="rsvp" class="sticky-card glass-card-cream rounded-3xl p-8 text-center space-y-6 relative overflow-visible reveal-on-scroll" style="top: 5.5rem; z-index: 50;">
                     <div class="space-y-2">
-                        <span class="font-cinzel text-[10px] tracking-[0.3em] text-amber-300 uppercase">Wishes</span>
-                        <h2 class="font-serif-luxury text-4xl text-gold">Ucapan & Restu</h2>
+                        <span class="font-cinzel text-[10px] tracking-[0.3em] text-maroon uppercase font-semibold">Wishes</span>
+                        <h2 class="font-script text-5xl text-gold py-1">Ucapan & Restu</h2>
                     </div>
 
                     <form onsubmit="sendToSheetOnly(event)" class="space-y-4 text-left">
                         <div>
-                            <label class="block font-cinzel text-[10px] text-amber-200 uppercase tracking-wider mb-1">Nama Anda</label>
-                            <input type="text" id="senderName" required class="w-full px-4 py-3 text-xs bg-white/10 border border-amber-400/30 rounded-xl text-white placeholder-stone-400 focus:border-amber-300 focus:outline-none" placeholder="Tulis nama Anda">
+                            <label class="block font-cinzel text-[10px] text-maroon uppercase tracking-wider mb-1 font-semibold">Nama Anda</label>
+                            <input type="text" id="senderName" required class="w-full px-4 py-3 text-xs bg-white/70 border border-maroon/20 rounded-xl text-stone-800 placeholder-stone-400 focus:border-maroon focus:outline-none" placeholder="Tulis nama Anda">
                         </div>
 
                         <div>
-                            <label class="block font-cinzel text-[10px] text-amber-200 uppercase tracking-wider mb-1">Pesan & Doa</label>
-                            <textarea id="senderMessage" rows="3" required class="w-full px-4 py-3 text-xs bg-white/10 border border-amber-400/30 rounded-xl text-white placeholder-stone-400 focus:border-amber-300 focus:outline-none" placeholder="Tulis ucapan selamat"></textarea>
+                            <label class="block font-cinzel text-[10px] text-maroon uppercase tracking-wider mb-1 font-semibold">Pesan & Doa</label>
+                            <textarea id="senderMessage" rows="3" required class="w-full px-4 py-3 text-xs bg-white/70 border border-maroon/20 rounded-xl text-stone-800 placeholder-stone-400 focus:border-maroon focus:outline-none" placeholder="Tulis ucapan selamat"></textarea>
                         </div>
 
-                        <button type="submit" id="submitBtn" class="w-full py-3.5 bg-gold-gradient text-stone-950 font-cinzel text-xs font-bold tracking-widest rounded-xl shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:brightness-110 transition flex items-center justify-center gap-2">
+                        <button type="submit" id="submitBtn" class="w-full py-3.5 bg-gold-gradient text-stone-900 font-cinzel text-xs font-bold tracking-widest rounded-xl shadow-[0_0_20px_rgba(128,0,32,0.2)] hover:brightness-110 transition flex items-center justify-center gap-2">
                             <i class="fas fa-paper-plane text-xs"></i> Kirim Ucapan ke Buku Tamu
                         </button>
                     </form>
 
-                    <div class="space-y-3 pt-4 border-t border-amber-400/20 text-left">
-                        <h3 class="font-cinzel text-xs text-amber-200 uppercase tracking-wider text-center">Daftar Ucapan Tamu</h3>
+                    <div class="space-y-3 pt-4 border-t border-maroon/15 text-left">
+                        <h3 class="font-cinzel text-xs text-maroon uppercase tracking-wider text-center font-semibold">Daftar Ucapan Tamu</h3>
                         <div id="guestbookContainer" class="max-h-60 overflow-y-auto space-y-3 pr-1">
-                            <p class="text-[11px] text-stone-400 text-center italic">Memuat ucapan...</p>
+                            <p class="text-[11px] text-stone-500 text-center italic">Memuat ucapan...</p>
                         </div>
                     </div>
 
-                    <footer class="pt-6 text-center text-[9px] font-cinzel text-amber-200/50 tracking-widest lg:hidden">
+                    <footer class="pt-6 text-center text-[9px] font-cinzel text-stone-500 tracking-widest lg:hidden">
                         The Wedding of Putra & Neysa &copy; 2026
                     </footer>
                 </section>
 
-                <!-- FLOATING BOTTOM NAVBAR (Dibersihkan dari tombol generator) -->
-                <nav class="fixed bottom-4 left-1/2 -translate-x-1/2 lg:left-auto lg:right-12 lg:translate-x-0 z-40 glass-card-pearl px-6 py-3 rounded-full border border-amber-400/40 flex items-center gap-6 shadow-2xl">
-                    <a href="#home" class="text-stone-300 hover:text-amber-300 text-xs transition"><i class="fas fa-home"></i></a>
-                    <a href="#couple" class="text-stone-300 hover:text-amber-300 text-xs transition"><i class="fas fa-heart"></i></a>
-                    <a href="#event" class="text-stone-300 hover:text-amber-300 text-xs transition"><i class="fas fa-calendar-alt"></i></a>
-                    <a href="#gift" class="text-stone-300 hover:text-amber-300 text-xs transition"><i class="fas fa-gift"></i></a>
-                    <a href="#rsvp" class="text-stone-300 hover:text-amber-300 text-xs transition"><i class="fas fa-comment-dots"></i></a>
+                <!-- FLOATING BOTTOM NAVBAR -->
+                <nav class="fixed bottom-4 left-1/2 -translate-x-1/2 lg:left-auto lg:right-12 lg:translate-x-0 z-40 glass-card-cream px-6 py-3 rounded-full border border-maroon/30 flex items-center gap-6 shadow-xl">
+                    <a href="#home" class="text-stone-600 hover:text-maroon text-xs transition"><i class="fas fa-home"></i></a>
+                    <a href="#couple" class="text-stone-600 hover:text-maroon text-xs transition"><i class="fas fa-heart"></i></a>
+                    <a href="#event" class="text-stone-600 hover:text-maroon text-xs transition"><i class="fas fa-calendar-alt"></i></a>
+                    <a href="#gift" class="text-stone-600 hover:text-maroon text-xs transition"><i class="fas fa-gift"></i></a>
+                    <a href="#rsvp" class="text-stone-600 hover:text-maroon text-xs transition"><i class="fas fa-comment-dots"></i></a>
                 </nav>
 
             </div>
@@ -503,24 +520,24 @@
                 const response = await fetch(SHEETDB_API_URL);
                 const data = await response.json();
                 if (!data || data.length === 0) {
-                    container.innerHTML = '<p class="text-[11px] text-stone-400 text-center italic">Belum ada ucapan.</p>';
+                    container.innerHTML = '<p class="text-[11px] text-stone-500 text-center italic">Belum ada ucapan.</p>';
                     return;
                 }
                 container.innerHTML = "";
                 data.slice().reverse().forEach(row => {
                     const item = document.createElement('div');
-                    item.className = "p-3.5 rounded-xl glass-inner space-y-1";
+                    item.className = "p-3.5 rounded-xl glass-inner space-y-1 text-stone-700";
                     item.innerHTML = `
                         <div class="flex justify-between items-center">
-                            <span class="font-cinzel text-xs text-amber-200 font-semibold">${row.nama || 'Anonim'}</span>
-                            <span class="text-[9px] text-stone-400">${row.tanggal || ''}</span>
+                            <span class="font-cinzel text-xs text-maroon font-bold">${row.nama || 'Anonim'}</span>
+                            <span class="text-[9px] text-stone-500">${row.tanggal || ''}</span>
                         </div>
-                        <p class="text-[11px] text-stone-300 font-light leading-relaxed">${row.pesan || ''}</p>
+                        <p class="text-[11px] text-stone-600 font-light leading-relaxed">${row.pesan || ''}</p>
                     `;
                     container.appendChild(item);
                 });
             } catch (error) {
-                container.innerHTML = '<p class="text-[11px] text-stone-400 text-center italic">Gagal memuat daftar ucapan.</p>';
+                container.innerHTML = '<p class="text-[11px] text-stone-500 text-center italic">Gagal memuat daftar ucapan.</p>';
             }
         }
 
