@@ -114,7 +114,7 @@
         }
 
         .bg-cover-custom {
-            background: linear-gradient(to bottom, rgba(20, 15, 12, 0.15) 0%, rgba(40, 20, 25, 0.25) 30%, rgba(70, 15, 25, 0.75) 75%, rgba(60, 10, 15, 0.95) 100%), 
+            background: linear-gradient(to bottom, rgba(20, 15, 12, 0.2) 0%, rgba(40, 20, 25, 0.3) 30%, rgba(70, 15, 25, 0.8) 75%, rgba(60, 10, 15, 0.95) 100%), 
                         url("images/Neysa dan Putra.jpeg");
             background-size: cover;
             background-position: center 30%;
@@ -259,43 +259,45 @@
         <!-- Sisi Kanan / Mobile Container -->
         <div class="w-full lg:w-5/12 min-h-screen flex flex-col items-center relative bg-invitation-theme">
             
-            <!-- 1. BAGIAN COVER (Sampul Depan - Nama Pengantin, Tanggal, & Wedding of di atas; Tamu & Tombol di bawah) -->
-            <div id="welcomeCoverSection" class="w-full flex flex-col justify-between bg-cover-custom text-white text-center p-6 md:p-10 pt-8 pb-10 gap-4 shrink-0 min-h-screen">
+            <!-- 1. BAGIAN COVER (Menggunakan justify-between dengan space-y-auto agar elemen bawah terdorong mentok ke dasar layar) -->
+            <div id="welcomeCoverSection" class="w-full flex flex-col justify-between bg-cover-custom text-white text-center p-5 md:p-6 pt-6 pb-4 shrink-0 min-h-screen">
                 
                 <div class="birds-container">
                     <div class="bird" style="top: 10%; animation-duration: 14s; animation-delay: 0s;"></div>
                     <div class="bird" style="top: 22%; animation-duration: 18s; animation-delay: 3s; transform: scale(0.8);"></div>
-                    <div class="bird" style="top: 35%; animation-duration: 20s; animation-delay: 1.5s; transform: scale(0.9);"></div>
                 </div>
 
                 <!-- Bagian Atas: Tetap di atas -->
-                <div class="space-y-2 relative z-10 animate-fade-in-up-1">
-                    <p class="font-cinzel text-[11px] uppercase tracking-[0.3em] text-amber-200">The Wedding of</p>
+                <div class="space-y-1 relative z-10 animate-fade-in-up-1 mt-1">
+                    <p class="font-cinzel text-[9px] uppercase tracking-[0.3em] text-amber-200">The Wedding of</p>
                     
-                    <h1 class="font-script text-6xl md:text-7xl text-stone-100 font-normal tracking-wide drop-shadow-md py-1">
+                    <h1 class="font-script text-4xl md:text-5xl text-stone-100 font-normal tracking-wide drop-shadow-md py-0.5">
                         Putra <span class="text-amber-300">&</span> Neysa
                     </h1>
 
-                    <p class="font-cinzel text-xs text-stone-200 tracking-widest pt-1">Sabtu, 21 November 2026</p>
+                    <p class="font-cinzel text-[10px] text-stone-200 tracking-widest">Sabtu, 21 November 2026</p>
                 </div>
                 
-                <!-- Bagian Bawah yang Diturunkan (Tamu Undangan & Tombol Buka) -->
-                <div class="w-full max-w-sm mx-auto space-y-4 relative z-10 animate-fade-in-up-2 pt-32">
-                    <div class="space-y-1">
-                        <p class="font-cinzel text-[10px] text-stone-300 uppercase tracking-widest">Kepada Yth. Bapak, Ibu, Saudara/i:</p>
-                        <h2 id="guestNameDisplay" class="font-luxury-title text-2xl md:text-3xl text-amber-200 capitalize font-semibold tracking-wide py-1">Tamu Undangan</h2>
-                        <p class="text-[10px] text-stone-300 italic font-light">Mohon maaf jika ada kesalahan penulisan nama/gelar</p>
+                <!-- Spacer fleksibel untuk memaksa bagian bawah turun ke paling dasar -->
+                <div class="space-y-auto"></div>
+
+                <!-- Bagian Bawah: Mentok di bawah layar -->
+                <div class="w-full max-w-sm mx-auto space-y-2.5 relative z-10 animate-fade-in-up-2 pb-2">
+                    <div class="space-y-0.5">
+                        <p class="font-cinzel text-[8px] text-stone-300 uppercase tracking-widest">Kepada Yth. Bapak, Ibu, Saudara/i:</p>
+                        <h2 id="guestNameDisplay" class="font-luxury-title text-lg md:text-xl text-amber-200 capitalize font-semibold tracking-wide">Tamu Undangan</h2>
+                        <p class="text-[8px] text-stone-300 italic font-light">Mohon maaf jika ada kesalahan penulisan nama/gelar</p>
                     </div>
 
-                    <div class="pt-2 animate-fade-in-up-3">
-                        <button onclick="openInvitation()" class="w-full max-w-xs px-8 py-3.5 bg-white/90 hover:bg-white text-stone-900 rounded-full font-cinzel text-xs font-bold tracking-widest shadow-[0_4px_25px_rgba(0,0,0,0.3)] transition-all transform active:scale-95 flex items-center justify-center gap-2.5 mx-auto border border-amber-300/50">
-                            <i class="fas fa-envelope-open text-maroon text-xs"></i> Buka Undangan
+                    <div class="pt-0.5 animate-fade-in-up-3">
+                        <button onclick="openInvitation()" class="px-5 py-2 bg-white/90 hover:bg-white text-stone-900 rounded-full font-cinzel text-[10px] font-bold tracking-wider shadow-[0_4px_20px_rgba(0,0,0,0.3)] transition-all transform active:scale-95 inline-flex items-center justify-center gap-1.5 mx-auto border border-amber-300/50">
+                            <i class="fas fa-envelope-open text-maroon text-[9px]"></i> Buka Undangan
                         </button>
                     </div>
-                </div>
-                
-                <div class="text-[9px] font-cinzel text-stone-400 tracking-widest relative z-10 animate-fade-in-up-4 pt-4">
-                    Putra & Neysa &copy; 2026
+
+                    <div class="text-[7px] font-cinzel text-stone-400 tracking-widest pt-1 animate-fade-in-up-4">
+                        Putra & Neysa &copy; 2026
+                    </div>
                 </div>
             </div>
 
