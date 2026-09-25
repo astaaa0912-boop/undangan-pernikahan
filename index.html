@@ -259,8 +259,8 @@
         <!-- Sisi Kanan / Mobile Container -->
         <div class="w-full lg:w-5/12 min-h-screen flex flex-col items-center relative bg-invitation-theme">
             
-            <!-- 1. BAGIAN COVER (Menggunakan justify-between dengan space-y-auto agar elemen bawah terdorong mentok ke dasar layar) -->
-            <div id="welcomeCoverSection" class="w-full flex flex-col justify-between bg-cover-custom text-white text-center p-5 md:p-6 pt-6 pb-4 shrink-0 min-h-screen">
+            <!-- 1. BAGIAN COVER (Dinaikkan sedikit dengan menambahkan padding bawah pb-8 agar tidak terlalu dasar) -->
+            <div id="welcomeCoverSection" class="w-full flex flex-col justify-between bg-cover-custom text-white text-center p-5 md:p-6 pt-6 pb-8 shrink-0 min-h-screen">
                 
                 <div class="birds-container">
                     <div class="bird" style="top: 10%; animation-duration: 14s; animation-delay: 0s;"></div>
@@ -278,19 +278,19 @@
                     <p class="font-cinzel text-[10px] text-stone-200 tracking-widest">Sabtu, 21 November 2026</p>
                 </div>
                 
-                <!-- Spacer fleksibel untuk memaksa bagian bawah turun ke paling dasar -->
+                <!-- Spacer fleksibel -->
                 <div class="space-y-auto"></div>
 
-                <!-- Bagian Bawah: Mentok di bawah layar -->
-                <div class="w-full max-w-sm mx-auto space-y-2.5 relative z-10 animate-fade-in-up-2 pb-2">
-                    <div class="space-y-0.5">
-                        <p class="font-cinzel text-[8px] text-stone-300 uppercase tracking-widest">Kepada Yth. Bapak, Ibu, Saudara/i:</p>
-                        <h2 id="guestNameDisplay" class="font-luxury-title text-lg md:text-xl text-amber-200 capitalize font-semibold tracking-wide">Tamu Undangan</h2>
+                <!-- Bagian Bawah: Sedikit dinaikkan dengan tambahan ruang di bawahnya -->
+                <div class="w-full max-w-sm mx-auto space-y-3 relative z-10 animate-fade-in-up-2 pb-6">
+                    <div class="space-y-1">
+                        <p class="font-cinzel text-[9px] text-stone-300 uppercase tracking-widest">Kepada Yth. Bapak, Ibu, Saudara/i:</p>
+                        <h2 id="guestNameDisplay" class="font-luxury-title text-xl md:text-2xl text-amber-200 capitalize font-semibold tracking-wide">Tamu Undangan</h2>
                         <p class="text-[8px] text-stone-300 italic font-light">Mohon maaf jika ada kesalahan penulisan nama/gelar</p>
                     </div>
 
-                    <div class="pt-0.5 animate-fade-in-up-3">
-                        <button onclick="openInvitation()" class="px-5 py-2 bg-white/90 hover:bg-white text-stone-900 rounded-full font-cinzel text-[10px] font-bold tracking-wider shadow-[0_4px_20px_rgba(0,0,0,0.3)] transition-all transform active:scale-95 inline-flex items-center justify-center gap-1.5 mx-auto border border-amber-300/50">
+                    <div class="pt-1 animate-fade-in-up-3">
+                        <button onclick="openInvitation()" class="px-6 py-2.5 bg-white/90 hover:bg-white text-stone-900 rounded-full font-cinzel text-[10px] font-bold tracking-wider shadow-[0_4px_20px_rgba(0,0,0,0.3)] transition-all transform active:scale-95 inline-flex items-center justify-center gap-1.5 mx-auto border border-amber-300/50">
                             <i class="fas fa-envelope-open text-maroon text-[9px]"></i> Buka Undangan
                         </button>
                     </div>
