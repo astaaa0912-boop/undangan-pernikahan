@@ -75,6 +75,19 @@
             transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
 
+        /* KELAS ANIMASI SCROLL (FADE UP & ZOOM) */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(50px) scale(0.97);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal-on-scroll.is-revealed {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
         .bg-hero {
             background: linear-gradient(to bottom, rgba(28, 8, 13, 0.4), rgba(28, 8, 13, 0.88)), 
                         url("images/Neysa dan Putra.jpeg");
@@ -244,7 +257,7 @@
                 </audio>
 
                 <!-- SECTION 1: HOME / HERO -->
-                <section id="home" class="sticky-card bg-hero rounded-3xl p-8 min-h-[80vh] lg:min-h-[85vh] flex flex-col justify-between text-center border border-amber-500/30 shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden relative" style="top: 1.5rem; z-index: 10;">
+                <section id="home" class="sticky-card bg-hero rounded-3xl p-8 min-h-[80vh] lg:min-h-[85vh] flex flex-col justify-between text-center border border-amber-500/30 shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden relative reveal-on-scroll" style="top: 1.5rem; z-index: 10;">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#1c080d] via-[#1c080d]/40 to-transparent"></div>
 
                     <div class="relative z-10 pt-6">
@@ -278,7 +291,7 @@
                 </section>
 
                 <!-- SECTION 2: COUPLE / MEMPELAI -->
-                <section id="couple" class="sticky-card glass-card-pearl rounded-3xl p-8 text-center space-y-8 relative overflow-hidden" style="top: 2.5rem; z-index: 20;">
+                <section id="couple" class="sticky-card glass-card-pearl rounded-3xl p-8 text-center space-y-8 relative overflow-hidden reveal-on-scroll" style="top: 2.5rem; z-index: 20;">
                     <div class="space-y-4 relative z-10">
                         <i class="fas fa-crown text-amber-400 text-base"></i>
                         <p class="text-xs text-stone-200 leading-relaxed italic font-light px-2">
@@ -321,7 +334,7 @@
                 </section>
 
                 <!-- SECTION 3: RANGKAIAN ACARA -->
-                <section id="event" class="sticky-card glass-card-pearl rounded-3xl p-8 text-center space-y-8 relative overflow-hidden" style="top: 3.5rem; z-index: 30;">
+                <section id="event" class="sticky-card glass-card-pearl rounded-3xl p-8 text-center space-y-8 relative overflow-hidden reveal-on-scroll" style="top: 3.5rem; z-index: 30;">
                     <div class="space-y-2">
                         <span class="font-cinzel text-[10px] tracking-[0.3em] text-amber-300 uppercase">Event Detail</span>
                         <h2 class="font-serif-luxury text-4xl text-gold">Rangkaian Acara</h2>
@@ -350,8 +363,33 @@
                     </a>
                 </section>
 
-                <!-- SECTION 4: AMPLOP DIGITAL -->
-                <section id="gift" class="sticky-card glass-card-pearl rounded-3xl p-8 text-center space-y-6 relative overflow-hidden" style="top: 4.5rem; z-index: 40;">
+                <!-- SECTION 4: GENERATOR LINK UNDANGAN & TEMPLAT PESAN -->
+                <section id="generator" class="sticky-card glass-card-pearl rounded-3xl p-8 text-center space-y-6 relative overflow-hidden reveal-on-scroll" style="top: 4.5rem; z-index: 45;">
+                    <div class="space-y-2">
+                        <span class="font-cinzel text-[10px] tracking-[0.3em] text-amber-300 uppercase">Invitation Generator</span>
+                        <h2 class="font-serif-luxury text-3xl text-gold">Buat Tautan Undangan</h2>
+                        <p class="text-[11px] text-stone-300 leading-relaxed">Masukkan nama tamu untuk langsung membuatkan pesan WhatsApp beserta link undangannya.</p>
+                    </div>
+
+                    <div class="space-y-4 text-left">
+                        <div>
+                            <label class="block font-cinzel text-[10px] text-amber-200 uppercase tracking-wider mb-1">Nama Tamu Undangan</label>
+                            <input type="text" id="genGuestName" oninput="generateInvitationText()" class="w-full px-4 py-3 text-xs bg-white/10 border border-amber-400/30 rounded-xl text-white placeholder-stone-400 focus:border-amber-300 focus:outline-none" placeholder="Contoh: Budi Santoso">
+                        </div>
+
+                        <div>
+                            <label class="block font-cinzel text-[10px] text-amber-200 uppercase tracking-wider mb-1">Hasil Templat Pesan</label>
+                            <textarea id="genTemplateResult" rows="6" readonly class="w-full px-4 py-3 text-[11px] bg-stone-950/60 border border-amber-400/30 rounded-xl text-stone-200 focus:outline-none resize-none font-sans"></textarea>
+                        </div>
+
+                        <button type="button" onclick="copyGeneratedTemplate()" class="w-full py-3.5 bg-gold-gradient text-stone-950 font-cinzel text-xs font-bold tracking-widest rounded-xl shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:brightness-110 transition flex items-center justify-center gap-2">
+                            <i class="fas fa-copy text-xs"></i> Salin Pesan & Tautan Undangan
+                        </button>
+                    </div>
+                </section>
+
+                <!-- SECTION 5: AMPLOP DIGITAL -->
+                <section id="gift" class="sticky-card glass-card-pearl rounded-3xl p-8 text-center space-y-6 relative overflow-hidden reveal-on-scroll" style="top: 5.0rem; z-index: 47;">
                     <div class="space-y-2">
                         <span class="font-cinzel text-[10px] tracking-[0.3em] text-amber-300 uppercase">Wedding Gift</span>
                         <h2 class="font-serif-luxury text-4xl text-gold">Amplop Digital</h2>
@@ -374,8 +412,8 @@
                     </div>
                 </section>
 
-                <!-- SECTION 5: UCAPAN & DOA (TERHUBUNG KE DATABASE) -->
-                <section id="rsvp" class="sticky-card glass-card-pearl rounded-3xl p-8 text-center space-y-6 relative overflow-hidden" style="top: 5.5rem; z-index: 50;">
+                <!-- SECTION 6: UCAPAN & DOA (TERHUBUNG KE DATABASE) -->
+                <section id="rsvp" class="sticky-card glass-card-pearl rounded-3xl p-8 text-center space-y-6 relative overflow-hidden reveal-on-scroll" style="top: 5.5rem; z-index: 50;">
                     <div class="space-y-2">
                         <span class="font-cinzel text-[10px] tracking-[0.3em] text-amber-300 uppercase">Wishes</span>
                         <h2 class="font-serif-luxury text-4xl text-gold">Ucapan & Restu</h2>
@@ -412,10 +450,11 @@
                 </section>
 
                 <!-- FLOATING BOTTOM NAVBAR -->
-                <nav class="fixed bottom-4 left-1/2 -translate-x-1/2 lg:left-auto lg:right-12 lg:translate-x-0 z-40 glass-card-pearl px-6 py-3 rounded-full border border-amber-400/40 flex items-center gap-6 shadow-2xl">
+                <nav class="fixed bottom-4 left-1/2 -translate-x-1/2 lg:left-auto lg:right-12 lg:translate-x-0 z-40 glass-card-pearl px-6 py-3 rounded-full border border-amber-400/40 flex items-center gap-5 shadow-2xl">
                     <a href="#home" class="text-stone-300 hover:text-amber-300 text-xs transition"><i class="fas fa-home"></i></a>
                     <a href="#couple" class="text-stone-300 hover:text-amber-300 text-xs transition"><i class="fas fa-heart"></i></a>
                     <a href="#event" class="text-stone-300 hover:text-amber-300 text-xs transition"><i class="fas fa-calendar-alt"></i></a>
+                    <a href="#generator" class="text-stone-300 hover:text-amber-300 text-xs transition" title="Generator Link"><i class="fas fa-link"></i></a>
                     <a href="#gift" class="text-stone-300 hover:text-amber-300 text-xs transition"><i class="fas fa-gift"></i></a>
                     <a href="#rsvp" class="text-stone-300 hover:text-amber-300 text-xs transition"><i class="fas fa-comment-dots"></i></a>
                 </nav>
@@ -446,6 +485,25 @@
             }
         }
         createPetals();
+
+        // SCROLL REVEAL ANIMATION OBSERVER
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-revealed');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(section => {
+            observer.observe(section);
+        });
 
         const urlParams = new URLSearchParams(window.location.search);
         const guestName = urlParams.get('to');
@@ -498,6 +556,34 @@
             alert('Nomor rekening berhasil disalin!');
         }
 
+        // FUNGSI GENERATOR TEMPLAT UNDANGAN
+        function generateInvitationText() {
+            let nameInput = document.getElementById('genGuestName').value.trim();
+            if (!nameInput) nameInput = "Nama Tamu";
+            
+            // Mengambil domain / URL aktif saat ini secara otomatis
+            let baseUrl = window.location.origin + window.location.pathname;
+            let encodedName = encodeURIComponent(nameInput);
+            let fullLink = `${baseUrl}?to=${encodedName}`;
+
+            let template = `Bismillahirrahmanirrahim.\n\nAssalamu’alaikum Warahmatullahi Wabarakatuh & Salam Sejahtera.\n\nTanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i (${nameInput}) untuk menghadiri acara pernikahan kami:\n\nSafrizal Saputra & Neysa Phillo Vania Lalela\n\nInformasi lengkap mengenai waktu dan tempat acara dapat diakses melalui tautan berikut:\n🔗 ${fullLink}\n\nMerupakan suatu kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir. Terima kasih atas doa restunya.\n\nWassalamu’alaikum Warahmatullahi Wabarakatuh.\n\nKami yang berbahagia,\nPutra & Neysa`;
+
+            document.getElementById('genTemplateResult').value = template;
+        }
+
+        // Jalankan sekali saat halaman dimuat
+        window.addEventListener('DOMContentLoaded', () => {
+            generateInvitationText();
+            fetchGuestbook();
+        });
+
+        function copyGeneratedTemplate() {
+            const textarea = document.getElementById('genTemplateResult');
+            textarea.select();
+            navigator.clipboard.writeText(textarea.value);
+            alert('Pesan dan tautan undangan berhasil disalin! Silakan tempel di WhatsApp.');
+        }
+
         // FUNGSI LOAD UCAPAN DARI DATABASE SAAT HALAMAN DIBUKA
         async function fetchGuestbook() {
             const container = document.getElementById('guestbookContainer');
@@ -511,7 +597,6 @@
                 }
 
                 container.innerHTML = "";
-                // Tampilkan dari data terbaru (dibalik)
                 data.slice().reverse().forEach(row => {
                     const item = document.createElement('div');
                     item.className = "p-3.5 rounded-xl glass-inner space-y-1";
@@ -529,10 +614,6 @@
             }
         }
 
-        // Panggil fungsi load saat halaman siap
-        window.addEventListener('DOMContentLoaded', fetchGuestbook);
-
-        // FUNGSI KIRIM HANYA KE GOOGLE SHEETS / DATABASE
         async function sendToSheetOnly(event) {
             event.preventDefault();
             
@@ -553,7 +634,6 @@
 
                 alert('Terima kasih! Ucapan dan doa restu Anda berhasil dikirim.');
                 
-                // Reset Form & Refresh daftar ucapan
                 document.getElementById('senderMessage').value = "";
                 fetchGuestbook();
             } catch (error) {
