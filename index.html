@@ -259,7 +259,7 @@
         <!-- Sisi Kanan / Mobile Container -->
         <div class="w-full lg:w-5/12 min-h-screen flex flex-col items-center relative bg-invitation-theme">
             
-            <!-- 1. BAGIAN COVER (Dinaikkan sedikit dengan menambahkan padding bawah pb-8 agar tidak terlalu dasar) -->
+            <!-- 1. BAGIAN COVER -->
             <div id="welcomeCoverSection" class="w-full flex flex-col justify-between bg-cover-custom text-white text-center p-5 md:p-6 pt-6 pb-8 shrink-0 min-h-screen">
                 
                 <div class="birds-container">
@@ -267,7 +267,6 @@
                     <div class="bird" style="top: 22%; animation-duration: 18s; animation-delay: 3s; transform: scale(0.8);"></div>
                 </div>
 
-                <!-- Bagian Atas: Tetap di atas -->
                 <div class="space-y-1 relative z-10 animate-fade-in-up-1 mt-1">
                     <p class="font-cinzel text-[9px] uppercase tracking-[0.3em] text-amber-200">The Wedding of</p>
                     
@@ -278,10 +277,8 @@
                     <p class="font-cinzel text-[10px] text-stone-200 tracking-widest">Sabtu, 21 November 2026</p>
                 </div>
                 
-                <!-- Spacer fleksibel -->
                 <div class="space-y-auto"></div>
 
-                <!-- Bagian Bawah: Sedikit dinaikkan dengan tambahan ruang di bawahnya -->
                 <div class="w-full max-w-sm mx-auto space-y-3 relative z-10 animate-fade-in-up-2 pb-6">
                     <div class="space-y-1">
                         <p class="font-cinzel text-[9px] text-stone-300 uppercase tracking-widest">Kepada Yth. Bapak, Ibu, Saudara/i:</p>
@@ -324,7 +321,6 @@
 
                 <!-- SECTION 1: HOME -->
                 <section id="home" class="sticky-card glass-card-cream rounded-3xl p-6 md:p-8 min-h-[85vh] flex flex-col justify-between text-center border border-maroon/20 shadow-[0_20px_40px_rgba(112,26,36,0.15)] overflow-visible relative reveal-on-scroll" style="top: 1.5rem; z-index: 10;">
-                    
                     <div class="relative z-10 pt-2 space-y-1">
                         <span class="font-cinzel text-[10px] tracking-[0.4em] text-maroon uppercase font-semibold">The Wedding Of</span>
                     </div>
@@ -519,8 +515,8 @@
                     </div>
 
                     <div class="space-y-2">
-                        <span class="font-cinzel text-[10px] tracking-[0.3em] text-maroon uppercase font-semibold">Wishes</span>
-                        <h2 class="font-luxury-title text-4xl text-gold py-1">Ucapan & Restu</h2>
+                        <span class="font-cinzel text-[10px] tracking-[0.3em] text-maroon uppercase font-semibold">RSVP & Wishes</span>
+                        <h2 class="font-luxury-title text-4xl text-gold py-1">Konfirmasi Kehadiran</h2>
                     </div>
 
                     <form onsubmit="sendToSheetOnly(event)" class="space-y-4 text-left">
@@ -530,17 +526,26 @@
                         </div>
 
                         <div>
+                            <label class="block font-cinzel text-[10px] text-maroon uppercase tracking-wider mb-1 font-semibold">Konfirmasi Kehadiran</label>
+                            <select id="senderAttendance" required class="w-full px-4 py-3 text-xs bg-white/70 border border-maroon/20 rounded-xl text-stone-800 focus:border-maroon focus:outline-none">
+                                <option value="" disabled selected>Pilih Kehadiran</option>
+                                <option value="Hadir">Hadir (Datang ke Acara)</option>
+                                <option value="Tidak Hadir">Tidak Hadir (Berhalangan)</option>
+                            </select>
+                        </div>
+
+                        <div>
                             <label class="block font-cinzel text-[10px] text-maroon uppercase tracking-wider mb-1 font-semibold">Pesan & Doa</label>
                             <textarea id="senderMessage" rows="3" required class="w-full px-4 py-3 text-xs bg-white/70 border border-maroon/20 rounded-xl text-stone-800 placeholder-stone-400 focus:border-maroon focus:outline-none" placeholder="Tulis ucapan selamat"></textarea>
                         </div>
 
                         <button type="submit" id="submitBtn" class="w-full py-3.5 bg-gold-gradient text-stone-900 font-cinzel text-xs font-bold tracking-widest rounded-xl shadow-[0_0_20px_rgba(128,0,32,0.2)] hover:brightness-110 transition flex items-center justify-center gap-2">
-                            <i class="fas fa-paper-plane text-xs"></i> Kirim Ucapan ke Buku Tamu
+                            <i class="fas fa-paper-plane text-xs"></i> Kirim Konfirmasi & Ucapan
                         </button>
                     </form>
 
                     <div class="space-y-3 pt-4 border-t border-maroon/15 text-left">
-                        <h3 class="font-cinzel text-xs text-maroon uppercase tracking-wider text-center font-semibold">Daftar Ucapan Tamu</h3>
+                        <h3 class="font-cinzel text-xs text-maroon uppercase tracking-wider text-center font-semibold">Daftar Kehadiran & Ucapan Tamu</h3>
                         <div id="guestbookContainer" class="max-h-60 overflow-y-auto space-y-3 pr-1">
                             <p class="text-[11px] text-stone-500 text-center italic">Memuat ucapan...</p>
                         </div>
@@ -650,12 +655,27 @@
                 }
                 container.innerHTML = "";
                 data.slice().reverse().forEach(row => {
+                    const attendance = row.kehadiran || row.attendance || '-';
+                    let badgeColor = "bg-stone-100 text-stone-600 border-stone-200";
+                    let attendanceIcon = '<i class="fas fa-question-circle mr-1"></i>';
+
+                    if (attendance.toLowerCase().includes("hadir") && !attendance.toLowerCase().includes("tidak")) {
+                        badgeColor = "bg-emerald-50 text-emerald-700 border-emerald-200";
+                        attendanceIcon = '<i class="fas fa-check mr-1 font-bold"></i>';
+                    } else if (attendance.toLowerCase().includes("tidak")) {
+                        badgeColor = "bg-rose-50 text-rose-700 border-rose-200";
+                        attendanceIcon = '<i class="fas fa-times mr-1 font-bold"></i>';
+                    }
+
                     const item = document.createElement('div');
-                    item.className = "p-3.5 rounded-xl glass-inner space-y-1 text-stone-700";
+                    item.className = "p-3.5 rounded-xl glass-inner space-y-1.5 text-stone-700";
                     item.innerHTML = `
-                        <div class="flex justify-between items-center">
-                            <span class="font-cinzel text-xs text-maroon font-bold">${row.nama || 'Anonim'}</span>
-                            <span class="text-[9px] text-stone-500">${row.tanggal || ''}</span>
+                        <div class="flex justify-between items-start gap-2">
+                            <div>
+                                <span class="font-cinzel text-xs text-maroon font-bold block">${row.nama || 'Anonim'}</span>
+                                <span class="text-[9px] text-stone-500">${row.tanggal || ''}</span>
+                            </div>
+                            <span class="text-[9px] px-2 py-0.5 rounded-full border font-medium inline-flex items-center ${badgeColor}">${attendanceIcon} ${attendance}</span>
                         </div>
                         <p class="text-[11px] text-stone-600 font-light leading-relaxed">${row.pesan || ''}</p>
                     `;
@@ -672,26 +692,28 @@
             event.preventDefault();
             const btn = document.getElementById('submitBtn');
             const name = document.getElementById('senderName').value;
+            const attendance = document.getElementById('senderAttendance').value;
             const message = document.getElementById('senderMessage').value;
             const currentDate = new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
 
             btn.disabled = true;
-            btn.innerText = "Mengirim Ucapan...";
+            btn.innerText = "Mengirim Konfirmasi...";
 
             try {
                 await fetch(SHEETDB_API_URL, {
                     method: 'POST',
                     headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ data: { nama: name, pesan: message, tanggal: currentDate } })
+                    body: JSON.stringify({ data: { nama: name, kehadiran: attendance, pesan: message, tanggal: currentDate } })
                 });
-                alert('Terima kasih! Ucapan dan doa restu Anda berhasil dikirim.');
+                alert('Terima kasih! Konfirmasi kehadiran dan ucapan Anda berhasil dikirim.');
                 document.getElementById('senderMessage').value = "";
+                document.getElementById('senderAttendance').selectedIndex = 0;
                 fetchGuestbook();
             } catch (error) {
-                alert('Gagal mengirim ucapan, silakan coba lagi.');
+                alert('Gagal mengirim konfirmasi, silakan coba lagi.');
             } finally {
                 btn.disabled = false;
-                btn.innerHTML = '<i class="fas fa-paper-plane text-xs"></i> Kirim Ucapan ke Buku Tamu';
+                btn.innerHTML = '<i class="fas fa-paper-plane text-xs"></i> Kirim Konfirmasi & Ucapan';
             }
         }
 
