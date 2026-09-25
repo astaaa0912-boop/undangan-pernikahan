@@ -3,150 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Generator Link Undangan Putra & Neysa</title>
+    <title>Admin Dashboard - The Wedding of Putra & Neysa</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
     <style>
         body { 
             font-family: 'Montserrat', sans-serif; 
-            background-color: #1c080d;
-            overflow-x: hidden;
+            background-color: #fcf8f5; 
+            color: #4a3b32;
         }
 
-        .bg-luxury-atmosphere {
+        .bg-cream-maroon {
             background-image: 
-                radial-gradient(circle at 50% 0%, rgba(128, 0, 32, 0.5) 0%, transparent 60%),
-                radial-gradient(circle at 90% 40%, rgba(245, 230, 211, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 10% 70%, rgba(80, 10, 22, 0.7) 0%, transparent 50%),
-                radial-gradient(circle at 50% 100%, rgba(28, 8, 13, 0.98) 0%, transparent 80%);
+                radial-gradient(circle at 50% 0%, rgba(128, 0, 32, 0.08) 0%, transparent 60%),
+                radial-gradient(circle at 90% 40%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 10% 80%, rgba(128, 0, 32, 0.06) 0%, transparent 60%),
+                linear-gradient(135deg, #fcf8f5 0%, #f4ece4 100%);
             background-attachment: fixed;
         }
 
         .font-serif-luxury { font-family: 'Cormorant Garamond', serif; }
         .font-cinzel { font-family: 'Cinzel', serif; }
+        
+        .font-luxury-title { 
+            font-family: 'Cormorant Garamond', serif; 
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .text-maroon { color: #701a24; }
 
         .text-gold {
-            background: linear-gradient(135deg, #FFF1C1 0%, #D4AF37 35%, #FFE8A3 60%, #AA771C 100%);
+            background: linear-gradient(135deg, #966B13 0%, #B8860B 35%, #D4AF37 60%, #800020 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.25));
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
         }
         
         .bg-gold-gradient {
-            background: linear-gradient(135deg, #D4AF37 0%, #FFF3D6 25%, #C59B27 65%, #966B13 100%);
+            background: linear-gradient(135deg, #D4AF37 0%, #f3e0aa 25%, #C59B27 65%, #966B13 100%);
         }
 
-        .glass-card-pearl {
-            background: linear-gradient(145deg, rgba(245, 230, 211, 0.08) 0%, rgba(55, 12, 22, 0.75) 100%);
-            backdrop-filter: blur(25px) saturate(180%);
-            -webkit-backdrop-filter: blur(25px) saturate(180%);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8),
-                        0 0 25px rgba(128, 0, 32, 0.25),
-                        inset 0 1px 2px rgba(255, 241, 193, 0.3),
-                        inset 0 -1px 2px rgba(0, 0, 0, 0.8);
+        .glass-card-cream {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 241, 235, 0.85) 100%);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(128, 0, 32, 0.15);
+            box-shadow: 0 20px 40px -15px rgba(112, 26, 36, 0.1),
+                        0 0 25px rgba(212, 175, 55, 0.1),
+                        inset 0 1px 2px rgba(255, 255, 255, 0.8);
         }
 
-        .glow-orb {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(90px);
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.4;
+        .glass-inner {
+            background: linear-gradient(135deg, rgba(128, 0, 32, 0.03) 0%, rgba(212, 175, 55, 0.05) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(128, 0, 32, 0.1);
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6), 0 4px 15px rgba(112, 26, 36, 0.05);
         }
-        .orb-1 { top: 10%; left: -10%; width: 350px; height: 350px; background: rgba(140, 15, 38, 0.6); }
-        .orb-2 { bottom: 15%; right: -5%; width: 400px; height: 400px; background: rgba(212, 175, 55, 0.2); }
 
         ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: #1c080d; }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(#D4AF37, #966B13); border-radius: 4px; }
+        ::-webkit-scrollbar-track { background: #fcf8f5; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(#800020, #D4AF37); border-radius: 4px; }
     </style>
 </head>
-<body class="bg-luxury-atmosphere text-stone-100 antialiased min-h-screen relative flex items-center justify-center p-4">
+<body class="bg-cream-maroon text-stone-800 antialiased min-h-screen p-4 md:p-8">
 
-    <div class="glow-orb orb-1"></div>
-    <div class="glow-orb orb-2"></div>
-
-    <div class="w-full max-w-lg relative z-10 space-y-6">
+    <div class="max-w-4xl mx-auto space-y-6">
         
-        <!-- Header Admin -->
-        <div class="text-center space-y-2">
-            <span class="font-cinzel text-xs tracking-[0.4em] text-amber-200 uppercase">Admin Panel</span>
-            <h1 class="font-serif-luxury text-4xl text-gold font-normal">Generator Undangan</h1>
-            <p class="font-cinzel text-[11px] text-stone-300 tracking-wider">Putra & Neysa Wedding</p>
-        </div>
-
-        <!-- Card Generator -->
-        <div class="glass-card-pearl rounded-3xl p-8 space-y-6">
-            <div class="space-y-2 text-center">
-                <h2 class="font-serif-luxury text-2xl text-gold">Buat Tautan Undangan Tamu</h2>
-                <p class="text-[11px] text-stone-300 leading-relaxed">Masukkan nama tamu di bawah ini untuk menghasilkan format pesan WhatsApp beserta link undangannya secara otomatis.</p>
+        <!-- HEADER ADMIN -->
+        <header class="glass-card-cream rounded-3xl p-6 md:p-8 text-center space-y-3 relative">
+            <div class="space-y-1">
+                <span class="font-cinzel text-[10px] tracking-[0.4em] text-maroon uppercase font-semibold">Admin Panel</span>
+                <h1 class="font-luxury-title text-3xl md:text-4xl text-gold font-medium">Buku Tamu & Ucapan</h1>
+                <p class="text-xs text-stone-600 font-light">Kelola dan pantau ucapan doa restu dari tamu undangan.</p>
             </div>
-
-            <div class="space-y-4 text-left">
-                <div>
-                    <label class="block font-cinzel text-[10px] text-amber-200 uppercase tracking-wider mb-1">Nama Tamu Undangan</label>
-                    <input type="text" id="genGuestName" oninput="generateInvitationText()" class="w-full px-4 py-3 text-xs bg-white/10 border border-amber-400/30 rounded-xl text-white placeholder-stone-400 focus:border-amber-300 focus:outline-none" placeholder="Masukkan nama tamu undangan">
-                </div>
-
-                <div>
-                    <label class="block font-cinzel text-[10px] text-amber-200 uppercase tracking-wider mb-1">Hasil Templat Pesan</label>
-                    <textarea id="genTemplateResult" rows="7" readonly class="w-full px-4 py-3 text-[11px] bg-stone-950/60 border border-amber-400/30 rounded-xl text-stone-200 focus:outline-none resize-none font-sans"></textarea>
-                </div>
-
-                <button type="button" onclick="copyGeneratedTemplate()" class="w-full py-3.5 bg-gold-gradient text-stone-950 font-cinzel text-xs font-bold tracking-widest rounded-xl shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:brightness-110 transition flex items-center justify-center gap-2">
-                    <i class="fas fa-copy text-xs"></i> Salin Pesan & Tautan Undangan
+            <div class="pt-2 flex justify-center gap-3">
+                <a href="index_2.html" target="_blank" class="px-5 py-2.5 bg-maroon/10 hover:bg-maroon/20 text-maroon rounded-full font-cinzel text-[11px] font-bold tracking-wider border border-maroon/20 transition flex items-center gap-2">
+                    <i class="fas fa-eye text-xs"></i> Lihat Undangan
+                </a>
+                <button onclick="fetchAdminGuestbook()" class="px-5 py-2.5 bg-gold-gradient text-stone-900 rounded-full font-cinzel text-[11px] font-bold tracking-wider shadow-md hover:brightness-110 transition flex items-center gap-2">
+                    <i class="fas fa-sync-alt text-xs"></i> Refresh Data
                 </button>
             </div>
+        </header>
 
-            <div class="pt-4 border-t border-amber-400/20 text-center">
-                <a href="index.html" target="_blank" class="text-xs text-amber-300 hover:underline font-cinzel tracking-wider">
-                    <i class="fas fa-external-link-alt mr-1"></i> Lihat Halaman Utama Undangan
-                </a>
+        <!-- STATISTIK RINGKAS -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="glass-card-cream rounded-2xl p-6 flex items-center justify-between">
+                <div>
+                    <span class="font-cinzel text-[10px] uppercase tracking-wider text-stone-500 font-semibold">Total Ucapan Masuk</span>
+                    <h3 id="totalWishes" class="font-serif-luxury text-3xl font-bold text-maroon mt-1">0</h3>
+                </div>
+                <div class="w-12 h-12 rounded-2xl glass-inner flex items-center justify-center text-maroon text-lg">
+                    <i class="fas fa-comments"></i>
+                </div>
+            </div>
+            <div class="glass-card-cream rounded-2xl p-6 flex items-center justify-between">
+                <div>
+                    <span class="font-cinzel text-[10px] uppercase tracking-wider text-stone-500 font-semibold">Status Koneksi Database</span>
+                    <h3 class="font-cinzel text-sm font-bold text-emerald-700 mt-2 flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span> Terhubung (SheetDB)
+                    </h3>
+                </div>
+                <div class="w-12 h-12 rounded-2xl glass-inner flex items-center justify-center text-emerald-700 text-lg">
+                    <i class="fas fa-database"></i>
+                </div>
             </div>
         </div>
 
-        <footer class="text-center text-[10px] font-cinzel text-amber-200/50 tracking-widest">
-            &copy; 2026 Putra & Neysa. All Rights Reserved.
+        <!-- DAFTAR PESAN / TABEL UCAPAN -->
+        <section class="glass-card-cream rounded-3xl p-6 md:p-8 space-y-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-maroon/15 pb-4">
+                <div>
+                    <h2 class="font-cinzel text-sm text-maroon uppercase tracking-wider font-bold">Daftar Ucapan Tamu</h2>
+                    <p class="text-[11px] text-stone-500">Data sinkron otomatis dari Google Sheets melalui SheetDB.</p>
+                </div>
+                <div class="w-full md:w-auto">
+                    <input type="text" id="searchInput" onkeyup="filterWishes()" placeholder="Cari nama tamu..." class="w-full md:w-64 px-4 py-2 text-xs bg-white/75 border border-maroon/20 rounded-xl text-stone-800 placeholder-stone-400 focus:border-maroon focus:outline-none">
+                </div>
+            </div>
+
+            <!-- Container List Ucapan -->
+            <div id="adminGuestbookContainer" class="space-y-3 max-h-[500px] overflow-y-auto pr-1">
+                <p class="text-xs text-stone-500 text-center py-8 italic">Memuat data ucapan...</p>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="text-center text-[10px] font-cinzel text-stone-500 tracking-widest pb-4">
+            Admin Panel &bull; The Wedding of Putra & Neysa &copy; 2026
         </footer>
+
     </div>
 
-    <!-- JAVASCRIPT GENERATOR -->
+    <!-- JAVASCRIPT ADMIN -->
     <script>
-        function generateInvitationText() {
-            let nameInput = document.getElementById('genGuestName').value.trim();
-            if (!nameInput) nameInput = "Nama Tamu";
+        const SHEETDB_API_URL = 'https://sheetdb.io/api/v1/kkevj5inh6lrk';
+        let allWishesData = [];
+
+        async function fetchAdminGuestbook() {
+            const container = document.getElementById('adminGuestbookContainer');
+            const totalWishesEl = document.getElementById('totalWishes');
             
-            // Otomatis mengambil domain utama website dan mengarahkannya ke index.html
-            let currentUrl = window.location.href;
-            let baseUrl = currentUrl.substring(0, currentUrl.lastIndexOf('/')) + '/index.html';
-            let encodedName = encodeURIComponent(nameInput);
-            let fullLink = `${baseUrl}?to=${encodedName}`;
+            container.innerHTML = '<p class="text-xs text-stone-500 text-center py-8 italic">Memuat data ucapan...</p>';
 
-            let template = `Bismillahirrahmanirrahim.\n\nAssalamu’alaikum Warahmatullahi Wabarakatuh & Salam Sejahtera.\n\nTanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i (${nameInput}) untuk menghadiri acara pernikahan kami:\n\nSafrizal Saputra & Neysa Phillo Vania Lalela\n\nInformasi lengkap mengenai waktu dan tempat acara dapat diakses melalui tautan berikut:\n🔗 ${fullLink}\n\nMerupakan suatu kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir. Terima kasih atas doa restunya.\n\nWassalamu’alaikum Warahmatullahi Wabarakatuh.\n\nKami yang berbahagia,\nPutra & Neysa`;
+            try {
+                const response = await fetch(SHEETDB_API_URL);
+                const data = await response.json();
+                
+                if (!data || data.length === 0) {
+                    container.innerHTML = '<p class="text-xs text-stone-500 text-center py-8 italic">Belum ada ucapan yang masuk.</p>';
+                    totalWishesEl.innerText = "0";
+                    allWishesData = [];
+                    return;
+                }
 
-            document.getElementById('genTemplateResult').value = template;
+                allWishesData = data.slice().reverse();
+                totalWishesEl.innerText = allWishesData.length;
+                renderWishes(allWishesData);
+
+            } catch (error) {
+                container.innerHTML = '<p class="text-xs text-red-600 text-center py-8 italic">Gagal memuat data dari server.</p>';
+            }
         }
 
-        // Jalankan saat pertama kali dimuat
-        window.addEventListener('DOMContentLoaded', () => {
-            generateInvitationText();
-        });
+        function renderWishes(data) {
+            const container = document.getElementById('adminGuestbookContainer');
+            container.innerHTML = "";
 
-        function copyGeneratedTemplate() {
-            const textarea = document.getElementById('genTemplateResult');
-            textarea.select();
-            navigator.clipboard.writeText(textarea.value);
-            alert('Pesan dan tautan undangan berhasil disalin! Silakan tempel di WhatsApp.');
+            data.forEach((row, index) => {
+                const item = document.createElement('div');
+                item.className = "p-4 rounded-2xl glass-inner space-y-2 text-stone-700 transition hover:bg-white/60";
+                item.innerHTML = `
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1 border-b border-maroon/10 pb-2">
+                        <div class="flex items-center gap-2">
+                            <span class="w-6 h-6 rounded-full bg-maroon/10 text-maroon text-[10px] font-bold flex items-center justify-center font-cinzel">${allWishesData.length - index}</span>
+                            <span class="font-cinzel text-xs text-maroon font-bold capitalize">${row.nama || 'Anonim'}</span>
+                        </div>
+                        <span class="text-[10px] text-stone-500 italic"><i class="far fa-clock mr-1"></i>${row.tanggal || 'Waktu tidak tercatat'}</span>
+                    </div>
+                    <p class="text-xs text-stone-700 font-light leading-relaxed pl-8">${row.pesan || ''}</p>
+                `;
+                container.appendChild(item);
+            });
         }
+
+        function filterWishes() {
+            const keyword = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = allWishesData.filter(row => {
+                const name = (row.nama || '').toLowerCase();
+                const message = (row.pesan || '').toLowerCase();
+                return name.includes(keyword) || message.includes(keyword);
+            });
+            renderWishes(filtered);
+        }
+
+        window.addEventListener('DOMContentLoaded', fetchAdminGuestbook);
     </script>
 </body>
 </html>

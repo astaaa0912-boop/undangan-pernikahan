@@ -9,7 +9,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
@@ -36,6 +36,7 @@
 
         .font-serif-luxury { font-family: 'Cormorant Garamond', serif; }
         .font-cinzel { font-family: 'Cinzel', serif; }
+        .font-script { font-family: 'Great Vibes', cursive; }
         
         .font-luxury-title { 
             font-family: 'Cormorant Garamond', serif; 
@@ -202,13 +203,17 @@
         </div>
 
         <!-- Bagian Atas: Judul & Tanggal -->
-        <div class="pt-8 space-y-2 relative z-10">
+        <div class="pt-8 space-y-3 relative z-10">
             <p class="font-cinzel text-[11px] uppercase tracking-[0.3em] text-amber-200">The Wedding of</p>
-            <h1 class="font-luxury-title text-4xl md:text-5xl text-stone-100 font-medium tracking-wider drop-shadow-md py-1">Putra & Neysa</h1>
-            <p class="font-cinzel text-xs text-stone-200 tracking-widest pt-1">Sabtu, 21 November 2026</p>
+            
+            <h1 class="font-script text-6xl md:text-7xl text-stone-100 font-normal tracking-wide drop-shadow-md py-1">
+                Putra <span class="text-amber-300">&</span> Neysa
+            </h1>
+
+            <p class="font-cinzel text-xs text-stone-200 tracking-widest pt-2">Sabtu, 21 November 2026</p>
         </div>
         
-        <!-- Bagian Bawah: Nama Tamu & Tombol Buka (Digeser ke bawah dengan mt-auto & padding bawah) -->
+        <!-- Bagian Bawah: Nama Tamu & Tombol Buka -->
         <div class="w-full max-w-sm mx-auto mt-auto pb-8 pt-4 space-y-4 relative z-10">
             <div class="space-y-1">
                 <p class="font-cinzel text-[10px] text-stone-300 uppercase tracking-widest">Kepada Yth. Bapak, Ibu, Saudara/i:</p>
@@ -239,8 +244,10 @@
             </div>
 
             <div class="space-y-4">
-                <h1 class="font-luxury-title text-7xl text-stone-100 font-medium drop-shadow-2xl py-3 tracking-wide">Putra & Neysa</h1>
-                <p class="font-cinzel text-sm tracking-[0.3em] text-stone-200 uppercase">Sabtu, 21 November 2026</p>
+                <h1 class="font-script text-8xl text-stone-100 font-normal drop-shadow-2xl tracking-wide leading-tight">
+                    Putra <br><span class="text-amber-300">&</span> Neysa
+                </h1>
+                <p class="font-cinzel text-sm tracking-[0.3em] text-stone-200 uppercase pt-2">Sabtu, 21 November 2026</p>
             </div>
 
             <div class="text-xs font-cinzel text-amber-200/80 tracking-widest flex items-center gap-3">
@@ -250,15 +257,24 @@
 
         <!-- Sisi Kanan / Mobile Container -->
         <div class="w-full lg:w-5/12 min-h-screen flex justify-center items-center py-6 px-3 lg:px-8 relative">
-            <div class="w-full max-w-md relative pb-24">
+            <div class="w-full max-w-md relative pt-16 pb-12">
 
-                <!-- TOMBOL AUDIO -->
-                <button id="musicToggle" onclick="toggleAudio()" class="hidden fixed top-6 right-6 lg:right-12 z-40 w-11 h-11 glass-card-cream text-maroon rounded-full shadow-xl flex items-center justify-center transition active:scale-90 border border-maroon/30">
+                <!-- TOMBOL AUDIO (z-[120] agar di atas cover) -->
+                <button id="musicToggle" onclick="toggleAudio()" class="hidden fixed top-6 right-6 lg:right-12 z-[120] w-11 h-11 glass-card-cream text-maroon rounded-full shadow-xl flex items-center justify-center transition active:scale-90 border border-maroon/30">
                     <i id="musicIcon" class="fas fa-music animate-pulse text-xs"></i>
                 </button>
                 <audio id="bgMusic" loop preload="auto">
                     <source src="audio/backsound.mp3" type="audio/mpeg">
                 </audio>
+
+                <!-- FLOATING TOP NAVBAR (z-[120] agar di atas cover) -->
+                <nav class="fixed top-4 left-1/2 -translate-x-1/2 lg:left-auto lg:right-12 lg:translate-x-0 z-[120] glass-card-cream px-6 py-3 rounded-full border border-maroon/30 flex items-center gap-6 shadow-xl">
+                    <a href="#home" class="text-stone-600 hover:text-maroon text-xs transition"><i class="fas fa-home"></i></a>
+                    <a href="#couple" class="text-stone-600 hover:text-maroon text-xs transition"><i class="fas fa-heart"></i></a>
+                    <a href="#event" class="text-stone-600 hover:text-maroon text-xs transition"><i class="fas fa-calendar-alt"></i></a>
+                    <a href="#gift" class="text-stone-600 hover:text-maroon text-xs transition"><i class="fas fa-gift"></i></a>
+                    <a href="#rsvp" class="text-stone-600 hover:text-maroon text-xs transition"><i class="fas fa-comment-dots"></i></a>
+                </nav>
 
                 <!-- SECTION 1: HOME -->
                 <section id="home" class="sticky-card bg-hero rounded-3xl p-8 min-h-[80vh] lg:min-h-[85vh] flex flex-col justify-between text-center border border-maroon/20 shadow-[0_20px_40px_rgba(112,26,36,0.15)] overflow-visible relative reveal-on-scroll" style="top: 1.5rem; z-index: 10;">
@@ -270,7 +286,9 @@
                     </div>
 
                     <div class="relative z-10 space-y-3 text-white">
-                        <h1 class="font-luxury-title text-5xl text-stone-100 font-medium drop-shadow py-2">Putra & Neysa</h1>
+                        <h1 class="font-script text-6xl text-stone-100 font-normal drop-shadow py-2">
+                            Putra <span class="text-amber-300">&</span> Neysa
+                        </h1>
                         <p class="font-cinzel text-xs tracking-widest uppercase text-stone-200">21 November 2026</p>
                     </div>
 
@@ -423,15 +441,6 @@
                         The Wedding of Putra & Neysa &copy; 2026
                     </footer>
                 </section>
-
-                <!-- FLOATING BOTTOM NAVBAR -->
-                <nav class="fixed bottom-4 left-1/2 -translate-x-1/2 lg:left-auto lg:right-12 lg:translate-x-0 z-40 glass-card-cream px-6 py-3 rounded-full border border-maroon/30 flex items-center gap-6 shadow-xl">
-                    <a href="#home" class="text-stone-600 hover:text-maroon text-xs transition"><i class="fas fa-home"></i></a>
-                    <a href="#couple" class="text-stone-600 hover:text-maroon text-xs transition"><i class="fas fa-heart"></i></a>
-                    <a href="#event" class="text-stone-600 hover:text-maroon text-xs transition"><i class="fas fa-calendar-alt"></i></a>
-                    <a href="#gift" class="text-stone-600 hover:text-maroon text-xs transition"><i class="fas fa-gift"></i></a>
-                    <a href="#rsvp" class="text-stone-600 hover:text-maroon text-xs transition"><i class="fas fa-comment-dots"></i></a>
-                </nav>
 
             </div>
         </div>
