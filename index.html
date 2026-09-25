@@ -21,8 +21,10 @@
             color: #4a3b32;
         }
 
-        body.cover-active {
-            overflow: hidden !important;
+        /* Jika belum dibuka, kunci scroll utama */
+        body.locked {
+            overflow: hidden;
+            height: 100vh;
         }
 
         .bg-cream-maroon {
@@ -96,14 +98,8 @@
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(25px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .animate-fade-in-up-1 { animation: fadeInUp 1.2s ease forwards; animation-delay: 0.2s; opacity: 0; }
@@ -204,13 +200,10 @@
             100% { transform: translateX(108vw) translateY(30px) scale(0.6) rotate(-5deg); }
         }
 
-        #welcomeCover {
-            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), opacity 1s ease;
-        }
-        .cover-opening {
-            transform: scale(1.1) translateY(-30px);
-            opacity: 0;
-            filter: blur(10px);
+        #welcomeCoverSection {
+            min-height: 100vh;
+            position: relative;
+            z-index: 120;
         }
 
         .glow-orb {
@@ -235,52 +228,14 @@
         ::-webkit-scrollbar-thumb { background: linear-gradient(#800020, #D4AF37); border-radius: 4px; }
     </style>
 </head>
-<body class="bg-cream-maroon text-stone-800 antialiased min-h-screen relative cover-active">
+<body class="bg-cream-maroon text-stone-800 antialiased min-h-screen relative locked">
 
     <div class="glow-orb orb-1"></div>
     <div class="glow-orb orb-2"></div>
     <div class="petals-container" id="petals"></div>
     <div class="butterflies-container" id="butterflies"></div>
 
-    <!-- WELCOME COVER -->
-    <div id="welcomeCover" class="fixed inset-0 z-[100] flex flex-col justify-between bg-cover-custom text-white text-center p-6 md:p-10 overflow-y-auto">
-        
-        <div class="birds-container">
-            <div class="bird" style="top: 10%; animation-duration: 14s; animation-delay: 0s;"></div>
-            <div class="bird" style="top: 22%; animation-duration: 18s; animation-delay: 3s; transform: scale(0.8);"></div>
-            <div class="bird" style="top: 35%; animation-duration: 20s; animation-delay: 1.5s; transform: scale(0.9);"></div>
-        </div>
-
-        <div class="pt-8 space-y-3 relative z-10 animate-fade-in-up-1">
-            <p class="font-cinzel text-[11px] uppercase tracking-[0.3em] text-amber-200">The Wedding of</p>
-            
-            <h1 class="font-script text-6xl md:text-7xl text-stone-100 font-normal tracking-wide drop-shadow-md py-1">
-                Putra <span class="text-amber-300">&</span> Neysa
-            </h1>
-
-            <p class="font-cinzel text-xs text-stone-200 tracking-widest pt-2">Sabtu, 21 November 2026</p>
-        </div>
-        
-        <div class="w-full max-w-sm mx-auto mt-auto pb-8 pt-4 space-y-4 relative z-10 animate-fade-in-up-2">
-            <div class="space-y-1">
-                <p class="font-cinzel text-[10px] text-stone-300 uppercase tracking-widest">Kepada Yth. Bapak, Ibu, Saudara/i:</p>
-                <h2 id="guestNameDisplay" class="font-luxury-title text-2xl md:text-3xl text-amber-200 capitalize font-semibold tracking-wide py-1">Tamu Undangan</h2>
-                <p class="text-[10px] text-stone-300 italic font-light">Mohon maaf jika ada kesalahan penulisan nama/gelar</p>
-            </div>
-
-            <div class="pt-2 animate-fade-in-up-3">
-                <button onclick="openInvitation()" class="w-full max-w-xs px-8 py-3.5 bg-white/90 hover:bg-white text-stone-900 rounded-full font-cinzel text-xs font-bold tracking-widest shadow-[0_4px_25px_rgba(0,0,0,0.3)] transition-all transform active:scale-95 flex items-center justify-center gap-2.5 mx-auto border border-amber-300/50">
-                    <i class="fas fa-envelope-open text-maroon text-xs"></i> Buka Undangan
-                </button>
-            </div>
-        </div>
-        
-        <div class="pb-2 text-[9px] font-cinzel text-stone-400 tracking-widest relative z-10 animate-fade-in-up-4">
-            Putra & Neysa &copy; 2026
-        </div>
-    </div>
-
-    <!-- LAYOUT UTAMA -->
+    <!-- WRAPPER UTAMA -->
     <div class="w-full min-h-screen flex flex-col lg:flex-row relative z-10">
         
         <!-- Sisi Kiri Desktop -->
@@ -303,11 +258,51 @@
         </div>
 
         <!-- Sisi Kanan / Mobile Container -->
-        <div class="w-full lg:w-5/12 min-h-screen flex justify-center items-center py-6 px-3 lg:px-8 relative bg-invitation-theme">
-            <div class="w-full max-w-md relative pt-16 pb-12">
+        <div class="w-full lg:w-5/12 min-h-screen flex flex-col items-center relative bg-invitation-theme">
+            
+            <!-- 1. BAGIAN COVER (Sampul Depan) -->
+            <div id="welcomeCoverSection" class="w-full flex flex-col justify-between bg-cover-custom text-white text-center p-6 md:p-10 shrink-0">
+                
+                <div class="birds-container">
+                    <div class="bird" style="top: 10%; animation-duration: 14s; animation-delay: 0s;"></div>
+                    <div class="bird" style="top: 22%; animation-duration: 18s; animation-delay: 3s; transform: scale(0.8);"></div>
+                    <div class="bird" style="top: 35%; animation-duration: 20s; animation-delay: 1.5s; transform: scale(0.9);"></div>
+                </div>
+
+                <div class="pt-8 space-y-3 relative z-10 animate-fade-in-up-1">
+                    <p class="font-cinzel text-[11px] uppercase tracking-[0.3em] text-amber-200">The Wedding of</p>
+                    
+                    <h1 class="font-script text-6xl md:text-7xl text-stone-100 font-normal tracking-wide drop-shadow-md py-1">
+                        Putra <span class="text-amber-300">&</span> Neysa
+                    </h1>
+
+                    <p class="font-cinzel text-xs text-stone-200 tracking-widest pt-2">Sabtu, 21 November 2026</p>
+                </div>
+                
+                <div class="w-full max-w-sm mx-auto my-auto space-y-4 relative z-10 animate-fade-in-up-2 py-6">
+                    <div class="space-y-1">
+                        <p class="font-cinzel text-[10px] text-stone-300 uppercase tracking-widest">Kepada Yth. Bapak, Ibu, Saudara/i:</p>
+                        <h2 id="guestNameDisplay" class="font-luxury-title text-2xl md:text-3xl text-amber-200 capitalize font-semibold tracking-wide py-1">Tamu Undangan</h2>
+                        <p class="text-[10px] text-stone-300 italic font-light">Mohon maaf jika ada kesalahan penulisan nama/gelar</p>
+                    </div>
+
+                    <div class="pt-2 animate-fade-in-up-3">
+                        <button onclick="openInvitation()" class="w-full max-w-xs px-8 py-3.5 bg-white/90 hover:bg-white text-stone-900 rounded-full font-cinzel text-xs font-bold tracking-widest shadow-[0_4px_25px_rgba(0,0,0,0.3)] transition-all transform active:scale-95 flex items-center justify-center gap-2.5 mx-auto border border-amber-300/50">
+                            <i class="fas fa-envelope-open text-maroon text-xs"></i> Buka Undangan
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="pb-2 text-[9px] font-cinzel text-stone-400 tracking-widest relative z-10 animate-fade-in-up-4">
+                    Putra & Neysa &copy; 2026
+                </div>
+            </div>
+
+            <!-- 2. KONTEN ISI UNDANGAN (Berada di bawah cover, bisa discroll turun setelah tombol dibuka) -->
+            <div class="w-full max-w-md relative px-3 lg:px-0 pb-12 pt-6 space-y-6">
 
                 <!-- TOMBOL AUDIO -->
-                <button id="musicToggle" onclick="toggleAudio()" class="hidden fixed top-6 right-6 lg:right-12 z-[120] w-11 h-11 glass-card-cream text-maroon rounded-full shadow-xl flex items-center justify-center transition active:scale-90 border border-maroon/30">
+                <button id="musicToggle" onclick="toggleAudio()" class="hidden fixed top-6 right-6 lg:right-12 z-[110] w-11 h-11 glass-card-cream text-maroon rounded-full shadow-xl flex items-center justify-center transition active:scale-90 border border-maroon/30">
                     <i id="musicIcon" class="fas fa-music animate-pulse text-xs"></i>
                 </button>
                 <audio id="bgMusic" loop preload="auto">
@@ -315,10 +310,9 @@
                 </audio>
 
                 <!-- FLOATING TOP NAVBAR -->
-                <nav class="fixed top-4 left-1/2 -translate-x-1/2 lg:left-auto lg:right-12 lg:translate-x-0 z-[120] glass-card-cream px-5 py-2.5 rounded-full border border-maroon/30 flex items-center gap-3.5 shadow-xl">
+                <nav class="fixed top-4 left-1/2 -translate-x-1/2 lg:left-auto lg:right-12 lg:translate-x-0 z-[110] glass-card-cream px-5 py-2.5 rounded-full border border-maroon/30 flex items-center gap-4 shadow-xl">
                     <a href="#home" class="text-stone-600 hover:text-maroon text-xs transition"><i class="fas fa-home"></i></a>
                     <a href="#couple" class="text-stone-600 hover:text-maroon text-xs transition"><i class="fas fa-heart"></i></a>
-                    <a href="#story" class="text-stone-600 hover:text-maroon text-xs transition"><i class="fas fa-history"></i></a>
                     <a href="#album" class="text-stone-600 hover:text-maroon text-xs transition"><i class="fas fa-images"></i></a>
                     <a href="#event" class="text-stone-600 hover:text-maroon text-xs transition"><i class="fas fa-calendar-alt"></i></a>
                     <a href="#gift" class="text-stone-600 hover:text-maroon text-xs transition"><i class="fas fa-gift"></i></a>
@@ -393,7 +387,7 @@
                                 <img src="images/Putra.png" alt="Safrizal Saputra" class="w-full h-full object-cover rounded-full">
                             </div>
                             <span class="font-cinzel text-[10px] tracking-[0.3em] text-maroon uppercase block font-semibold">Mempelai Pria</span>
-                            <h3 class="font-luxury-title text-3xl text-gold py-1 font-semibold">Safrizal Saputra Hasibuan</h3>
+                            <h3 class="font-luxury-title text-3xl text-gold py-1 font-semibold">Safrizal Saputra Hasibuan A.Md.Tra</h3>
                             <p class="text-[11px] text-stone-600 leading-relaxed">
                                 Putra Kedua dari<br>
                                 <strong class="text-stone-800 font-medium">H.Komaruddin Hasibuan</strong> & <strong class="text-stone-800 font-medium">Hj.Laminda Pasaribu</strong>
@@ -416,41 +410,14 @@
                     </div>
                 </section>
 
-                <!-- SECTION 3: LOVE STORY -->
-                <section id="story" class="sticky-card glass-card-cream rounded-3xl p-8 text-center space-y-6 relative overflow-visible reveal-on-scroll" style="top: 3.5rem; z-index: 30;">
-                    <div class="space-y-2">
-                        <span class="font-cinzel text-[10px] tracking-[0.3em] text-maroon uppercase font-semibold">Love Story</span>
-                        <h2 class="font-luxury-title text-4xl text-gold py-1">Perjalanan Bersama</h2>
-                        <p class="text-[11px] text-stone-600">Kisah perjalanan kasih hingga menuju ikatan suci pernikahan.</p>
-                    </div>
-
-                    <div class="space-y-4 text-left relative pl-6 border-l-2 border-maroon/20 my-4">
-                        <div class="relative space-y-1">
-                            <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-maroon border-2 border-amber-200"></span>
-                            <span class="font-cinzel text-[10px] text-maroon font-bold">2023 - Awal Bertemu</span>
-                            <p class="text-[11px] text-stone-600">-</p>
-                        </div>
-                        <div class="relative space-y-1">
-                            <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-maroon border-2 border-amber-200"></span>
-                            <span class="font-cinzel text-[10px] text-maroon font-bold">2024 - Menjalin Komitmen</span>
-                            <p class="text-[11px] text-stone-600">-</p>
-                        </div>
-                        <div class="relative space-y-1">
-                            <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-maroon border-2 border-amber-200"></span>
-                            <span class="font-cinzel text-[10px] text-maroon font-bold">21 November 2026 - Menuju Halal</span>
-                            <p class="text-[11px] text-stone-600">-</p>
-                        </div>
-                    </div>
-                </section>
-
                 <!-- SECTION: ALBUM FOTO / GALERI -->
-                <section id="album" class="sticky-card glass-card-cream rounded-3xl p-8 text-center space-y-6 relative overflow-visible reveal-on-scroll" style="top: 4.5rem; z-index: 35;">
+                <section id="album" class="sticky-card glass-card-cream rounded-3xl p-8 text-center space-y-6 relative overflow-visible reveal-on-scroll" style="top: 3.5rem; z-index: 35;">
                     <div class="space-y-2">
                         <span class="font-cinzel text-[10px] tracking-[0.3em] text-maroon uppercase font-semibold">Our Gallery</span>
                         <h2 class="font-luxury-title text-4xl text-gold py-1">Galeri Momen</h2>
+                        <p class="text-[11px] text-stone-600">Beberapa potret kebersamaan</p>
                     </div>
 
-                    <!-- Grid Album Foto -->
                     <div class="grid grid-cols-2 gap-3 pt-2">
                         <div class="overflow-hidden rounded-2xl border border-maroon/20 shadow-md group relative aspect-[4/5]">
                             <img src="images/Neysa dan Putra.jpeg" alt="Album 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
@@ -468,7 +435,7 @@
                 </section>
 
                 <!-- SECTION 4: EVENT -->
-                <section id="event" class="sticky-card glass-card-cream rounded-3xl p-8 text-center space-y-8 relative overflow-visible reveal-on-scroll" style="top: 5.5rem; z-index: 40;">
+                <section id="event" class="sticky-card glass-card-cream rounded-3xl p-8 text-center space-y-8 relative overflow-visible reveal-on-scroll" style="top: 4.5rem; z-index: 40;">
                     <div class="space-y-2">
                         <span class="font-cinzel text-[10px] tracking-[0.3em] text-maroon uppercase font-semibold">Event Detail</span>
                         <h2 class="font-luxury-title text-4xl text-gold py-1">Rangkaian Acara</h2>
@@ -498,14 +465,13 @@
                 </section>
 
                 <!-- SECTION 5: GIFT -->
-                <section id="gift" class="sticky-card glass-card-cream rounded-3xl p-8 text-center space-y-6 relative overflow-visible reveal-on-scroll" style="top: 6.5rem; z-index: 50;">
+                <section id="gift" class="sticky-card glass-card-cream rounded-3xl p-8 text-center space-y-6 relative overflow-visible reveal-on-scroll" style="top: 5.5rem; z-index: 50;">
                     <div class="space-y-2">
                         <span class="font-cinzel text-[10px] tracking-[0.3em] text-maroon uppercase font-semibold">Wedding Gift</span>
                         <h2 class="font-luxury-title text-4xl text-gold py-1">Amplop Digital</h2>
                         <p class="text-[11px] text-stone-600 leading-relaxed">Doa restu Anda adalah karunia terindah. Namun jika ingin memberi tanda kasih</p>
                     </div>
 
-                    <!-- Pilihan 1: Transfer Bank -->
                     <div class="p-6 glass-inner rounded-2xl text-left space-y-3 text-stone-700">
                         <div class="flex justify-between items-center border-b border-maroon/15 pb-2">
                             <span class="font-cinzel font-bold text-sm text-maroon"><i class="fas fa-university mr-2"></i>Transfer Bank</span>
@@ -521,7 +487,6 @@
                         </button>
                     </div>
 
-                    <!-- Pilihan 2: Kirim Kado Fisik -->
                     <div class="p-6 glass-inner rounded-2xl text-left space-y-3 text-stone-700">
                         <div class="flex justify-between items-center border-b border-maroon/15 pb-2">
                             <span class="font-cinzel font-bold text-sm text-maroon"><i class="fas fa-gift mr-2"></i>Kado</span>
@@ -540,7 +505,7 @@
                 </section>
 
                 <!-- SECTION 6: RSVP & GUESTBOOK -->
-                <section id="rsvp" class="sticky-card glass-card-cream rounded-3xl p-8 text-center space-y-6 relative overflow-visible reveal-on-scroll" style="top: 7.5rem; z-index: 60;">
+                <section id="rsvp" class="sticky-card glass-card-cream rounded-3xl p-8 text-center space-y-6 relative overflow-visible reveal-on-scroll" style="top: 6.5rem; z-index: 60;">
                     
                     <div class="space-y-3 pb-4 border-b border-maroon/15">
                         <i class="fas fa-dove text-maroon text-base"></i>
@@ -642,10 +607,12 @@
         let isPlaying = false;
 
         function openInvitation() {
-            const cover = document.getElementById('welcomeCover');
-            cover.classList.add('cover-opening', 'opacity-0');
-            setTimeout(() => cover.style.display = 'none', 1000);
-            document.body.classList.remove('cover-active');
+            // Membuka kunci scroll halaman agar tamu bisa menjelajahi isi undangan di bawah
+            document.body.classList.remove('locked');
+            
+            // Menggulir halaman secara halus ke bagian isi undangan (#home)
+            document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+            
             musicBtn.classList.remove('hidden');
             audio.play().then(() => isPlaying = true).catch(e => console.log("Autoplay blocked:", e));
         }
