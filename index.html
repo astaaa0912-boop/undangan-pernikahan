@@ -24,7 +24,6 @@
             overflow: hidden !important;
         }
 
-        /* Nuansa Cream & Maroon Luxury Atmosphere */
         .bg-luxury-atmosphere {
             background-image: 
                 radial-gradient(circle at 50% 0%, rgba(128, 0, 32, 0.5) 0%, transparent 60%),
@@ -75,7 +74,6 @@
             transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
 
-        /* KELAS ANIMASI SCROLL (FADE UP & ZOOM) */
         .reveal-on-scroll {
             opacity: 0;
             transform: translateY(50px) scale(0.97);
@@ -95,7 +93,6 @@
             background-position: center 30%;
         }
 
-        /* KELOPAK BUNGA JATUH */
         .petals-container {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -114,7 +111,6 @@
             100% { transform: translateY(105vh) translateX(50px) rotate(360deg); opacity: 0; }
         }
 
-        /* BURUNG TERBANG */
         .birds-container {
             position: absolute;
             top: 12%;
@@ -187,12 +183,10 @@
 
     <div class="glow-orb orb-1"></div>
     <div class="glow-orb orb-2"></div>
-
     <div class="petals-container" id="petals"></div>
 
     <!-- WELCOME COVER -->
     <div id="welcomeCover" class="fixed inset-0 z-[100] flex flex-col items-center justify-between bg-hero bg-cover bg-center text-white text-center p-8">
-        
         <div class="birds-container">
             <div class="bird" style="top: 15px;"></div>
             <div class="bird delayed" style="top: 45px;"></div>
@@ -245,7 +239,6 @@
 
         <!-- Sisi Kanan / Mobile Container -->
         <div class="w-full lg:w-5/12 min-h-screen flex justify-center items-center py-6 px-3 lg:px-8 relative">
-            
             <div class="w-full max-w-md relative pb-24">
 
                 <!-- TOMBOL AUDIO -->
@@ -256,7 +249,7 @@
                     <source src="audio/backsound.mp3" type="audio/mpeg">
                 </audio>
 
-                <!-- SECTION 1: HOME / HERO -->
+                <!-- SECTION 1: HOME -->
                 <section id="home" class="sticky-card bg-hero rounded-3xl p-8 min-h-[80vh] lg:min-h-[85vh] flex flex-col justify-between text-center border border-amber-500/30 shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden relative reveal-on-scroll" style="top: 1.5rem; z-index: 10;">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#1c080d] via-[#1c080d]/40 to-transparent"></div>
 
@@ -290,7 +283,7 @@
                     </div>
                 </section>
 
-                <!-- SECTION 2: COUPLE / MEMPELAI -->
+                <!-- SECTION 2: COUPLE -->
                 <section id="couple" class="sticky-card glass-card-pearl rounded-3xl p-8 text-center space-y-8 relative overflow-hidden reveal-on-scroll" style="top: 2.5rem; z-index: 20;">
                     <div class="space-y-4 relative z-10">
                         <i class="fas fa-crown text-amber-400 text-base"></i>
@@ -303,7 +296,6 @@
                     <div class="w-24 h-[1px] bg-gradient-to-r from-transparent via-amber-400/50 to-transparent mx-auto"></div>
 
                     <div class="space-y-10 relative z-10">
-                        <!-- Mempelai Pria -->
                         <div class="space-y-3">
                             <div class="w-36 h-36 mx-auto rounded-full overflow-hidden p-1 bg-gradient-to-tr from-amber-400/60 to-amber-200/20 shadow-xl">
                                 <img src="images/Putra.png" alt="Safrizal Saputra" class="w-full h-full object-cover rounded-full">
@@ -318,7 +310,6 @@
 
                         <div class="font-serif-luxury text-3xl text-amber-300/90 italic">&</div>
 
-                        <!-- Mempelai Wanita -->
                         <div class="space-y-3">
                             <div class="w-36 h-36 mx-auto rounded-full overflow-hidden p-1 bg-gradient-to-tr from-amber-400/60 to-amber-200/20 shadow-xl">
                                 <img src="images/Neysa.PNG" alt="Neysa Phillo Vania Lalela" class="w-full h-full object-cover rounded-full">
@@ -333,7 +324,7 @@
                     </div>
                 </section>
 
-                <!-- SECTION 3: RANGKAIAN ACARA -->
+                <!-- SECTION 3: EVENT -->
                 <section id="event" class="sticky-card glass-card-pearl rounded-3xl p-8 text-center space-y-8 relative overflow-hidden reveal-on-scroll" style="top: 3.5rem; z-index: 30;">
                     <div class="space-y-2">
                         <span class="font-cinzel text-[10px] tracking-[0.3em] text-amber-300 uppercase">Event Detail</span>
@@ -363,33 +354,8 @@
                     </a>
                 </section>
 
-                <!-- SECTION 4: GENERATOR LINK UNDANGAN & TEMPLAT PESAN -->
-                <section id="generator" class="sticky-card glass-card-pearl rounded-3xl p-8 text-center space-y-6 relative overflow-hidden reveal-on-scroll" style="top: 4.5rem; z-index: 45;">
-                    <div class="space-y-2">
-                        <span class="font-cinzel text-[10px] tracking-[0.3em] text-amber-300 uppercase">Invitation Generator</span>
-                        <h2 class="font-serif-luxury text-3xl text-gold">Buat Tautan Undangan</h2>
-                        <p class="text-[11px] text-stone-300 leading-relaxed">Masukkan nama tamu untuk langsung membuatkan pesan WhatsApp beserta link undangannya.</p>
-                    </div>
-
-                    <div class="space-y-4 text-left">
-                        <div>
-                            <label class="block font-cinzel text-[10px] text-amber-200 uppercase tracking-wider mb-1">Nama Tamu Undangan</label>
-                            <input type="text" id="genGuestName" oninput="generateInvitationText()" class="w-full px-4 py-3 text-xs bg-white/10 border border-amber-400/30 rounded-xl text-white placeholder-stone-400 focus:border-amber-300 focus:outline-none" placeholder="Contoh: Budi Santoso">
-                        </div>
-
-                        <div>
-                            <label class="block font-cinzel text-[10px] text-amber-200 uppercase tracking-wider mb-1">Hasil Templat Pesan</label>
-                            <textarea id="genTemplateResult" rows="6" readonly class="w-full px-4 py-3 text-[11px] bg-stone-950/60 border border-amber-400/30 rounded-xl text-stone-200 focus:outline-none resize-none font-sans"></textarea>
-                        </div>
-
-                        <button type="button" onclick="copyGeneratedTemplate()" class="w-full py-3.5 bg-gold-gradient text-stone-950 font-cinzel text-xs font-bold tracking-widest rounded-xl shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:brightness-110 transition flex items-center justify-center gap-2">
-                            <i class="fas fa-copy text-xs"></i> Salin Pesan & Tautan Undangan
-                        </button>
-                    </div>
-                </section>
-
-                <!-- SECTION 5: AMPLOP DIGITAL -->
-                <section id="gift" class="sticky-card glass-card-pearl rounded-3xl p-8 text-center space-y-6 relative overflow-hidden reveal-on-scroll" style="top: 5.0rem; z-index: 47;">
+                <!-- SECTION 4: GIFT -->
+                <section id="gift" class="sticky-card glass-card-pearl rounded-3xl p-8 text-center space-y-6 relative overflow-hidden reveal-on-scroll" style="top: 4.5rem; z-index: 40;">
                     <div class="space-y-2">
                         <span class="font-cinzel text-[10px] tracking-[0.3em] text-amber-300 uppercase">Wedding Gift</span>
                         <h2 class="font-serif-luxury text-4xl text-gold">Amplop Digital</h2>
@@ -412,7 +378,7 @@
                     </div>
                 </section>
 
-                <!-- SECTION 6: UCAPAN & DOA (TERHUBUNG KE DATABASE) -->
+                <!-- SECTION 5: RSVP & GUESTBOOK -->
                 <section id="rsvp" class="sticky-card glass-card-pearl rounded-3xl p-8 text-center space-y-6 relative overflow-hidden reveal-on-scroll" style="top: 5.5rem; z-index: 50;">
                     <div class="space-y-2">
                         <span class="font-cinzel text-[10px] tracking-[0.3em] text-amber-300 uppercase">Wishes</span>
@@ -435,10 +401,8 @@
                         </button>
                     </form>
 
-                    <!-- CONTAINER DAFTAR UCAPAN DARI DATABASE -->
                     <div class="space-y-3 pt-4 border-t border-amber-400/20 text-left">
                         <h3 class="font-cinzel text-xs text-amber-200 uppercase tracking-wider text-center">Daftar Ucapan Tamu</h3>
-                        
                         <div id="guestbookContainer" class="max-h-60 overflow-y-auto space-y-3 pr-1">
                             <p class="text-[11px] text-stone-400 text-center italic">Memuat ucapan...</p>
                         </div>
@@ -449,12 +413,11 @@
                     </footer>
                 </section>
 
-                <!-- FLOATING BOTTOM NAVBAR -->
-                <nav class="fixed bottom-4 left-1/2 -translate-x-1/2 lg:left-auto lg:right-12 lg:translate-x-0 z-40 glass-card-pearl px-6 py-3 rounded-full border border-amber-400/40 flex items-center gap-5 shadow-2xl">
+                <!-- FLOATING BOTTOM NAVBAR (Dibersihkan dari tombol generator) -->
+                <nav class="fixed bottom-4 left-1/2 -translate-x-1/2 lg:left-auto lg:right-12 lg:translate-x-0 z-40 glass-card-pearl px-6 py-3 rounded-full border border-amber-400/40 flex items-center gap-6 shadow-2xl">
                     <a href="#home" class="text-stone-300 hover:text-amber-300 text-xs transition"><i class="fas fa-home"></i></a>
                     <a href="#couple" class="text-stone-300 hover:text-amber-300 text-xs transition"><i class="fas fa-heart"></i></a>
                     <a href="#event" class="text-stone-300 hover:text-amber-300 text-xs transition"><i class="fas fa-calendar-alt"></i></a>
-                    <a href="#generator" class="text-stone-300 hover:text-amber-300 text-xs transition" title="Generator Link"><i class="fas fa-link"></i></a>
                     <a href="#gift" class="text-stone-300 hover:text-amber-300 text-xs transition"><i class="fas fa-gift"></i></a>
                     <a href="#rsvp" class="text-stone-300 hover:text-amber-300 text-xs transition"><i class="fas fa-comment-dots"></i></a>
                 </nav>
@@ -465,13 +428,11 @@
 
     <!-- JAVASCRIPT -->
     <script>
-        // Ganti URL di bawah ini dengan URL endpoint Google Sheets / SheetDB milikmu
         const SHEETDB_API_URL = 'https://sheetdb.io/api/v1/kkevj5inh6lrk';
 
         function createPetals() {
             const container = document.getElementById('petals');
-            const petalCount = 20;
-            for (let i = 0; i < petalCount; i++) {
+            for (let i = 0; i < 20; i++) {
                 const petal = document.createElement('div');
                 petal.classList.add('petal');
                 petal.style.left = Math.random() * 100 + 'vw';
@@ -486,28 +447,17 @@
         }
         createPetals();
 
-        // SCROLL REVEAL ANIMATION OBSERVER
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.15
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-revealed');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('is-revealed');
             });
         }, observerOptions);
 
-        document.querySelectorAll('.reveal-on-scroll').forEach(section => {
-            observer.observe(section);
-        });
+        document.querySelectorAll('.reveal-on-scroll').forEach(section => observer.observe(section));
 
         const urlParams = new URLSearchParams(window.location.search);
         const guestName = urlParams.get('to');
-        
         if (guestName) {
             document.getElementById('guestNameDisplay').innerText = guestName;
             document.getElementById('senderName').value = guestName;
@@ -521,20 +471,12 @@
         function openInvitation() {
             const cover = document.getElementById('welcomeCover');
             const envelope = document.getElementById('envelopeCard');
-            
             envelope.classList.add('envelope-opening');
             cover.classList.add('opacity-0');
-            
-            setTimeout(() => {
-                cover.style.display = 'none';
-            }, 1000);
-
+            setTimeout(() => cover.style.display = 'none', 1000);
             document.body.classList.remove('cover-active');
             musicBtn.classList.remove('hidden');
-
-            audio.play().then(() => {
-                isPlaying = true;
-            }).catch(e => console.log("Autoplay blocked:", e));
+            audio.play().then(() => isPlaying = true).catch(e => console.log("Autoplay blocked:", e));
         }
 
         function toggleAudio() {
@@ -551,51 +493,19 @@
         }
 
         function copyText(id) {
-            const text = document.getElementById(id).innerText;
-            navigator.clipboard.writeText(text);
+            navigator.clipboard.writeText(document.getElementById(id).innerText);
             alert('Nomor rekening berhasil disalin!');
         }
 
-        // FUNGSI GENERATOR TEMPLAT UNDANGAN
-        function generateInvitationText() {
-            let nameInput = document.getElementById('genGuestName').value.trim();
-            if (!nameInput) nameInput = "Nama Tamu";
-            
-            // Mengambil domain / URL aktif saat ini secara otomatis
-            let baseUrl = window.location.origin + window.location.pathname;
-            let encodedName = encodeURIComponent(nameInput);
-            let fullLink = `${baseUrl}?to=${encodedName}`;
-
-            let template = `Bismillahirrahmanirrahim.\n\nAssalamu’alaikum Warahmatullahi Wabarakatuh & Salam Sejahtera.\n\nTanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i (${nameInput}) untuk menghadiri acara pernikahan kami:\n\nSafrizal Saputra & Neysa Phillo Vania Lalela\n\nInformasi lengkap mengenai waktu dan tempat acara dapat diakses melalui tautan berikut:\n🔗 ${fullLink}\n\nMerupakan suatu kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir. Terima kasih atas doa restunya.\n\nWassalamu’alaikum Warahmatullahi Wabarakatuh.\n\nKami yang berbahagia,\nPutra & Neysa`;
-
-            document.getElementById('genTemplateResult').value = template;
-        }
-
-        // Jalankan sekali saat halaman dimuat
-        window.addEventListener('DOMContentLoaded', () => {
-            generateInvitationText();
-            fetchGuestbook();
-        });
-
-        function copyGeneratedTemplate() {
-            const textarea = document.getElementById('genTemplateResult');
-            textarea.select();
-            navigator.clipboard.writeText(textarea.value);
-            alert('Pesan dan tautan undangan berhasil disalin! Silakan tempel di WhatsApp.');
-        }
-
-        // FUNGSI LOAD UCAPAN DARI DATABASE SAAT HALAMAN DIBUKA
         async function fetchGuestbook() {
             const container = document.getElementById('guestbookContainer');
             try {
                 const response = await fetch(SHEETDB_API_URL);
                 const data = await response.json();
-                
                 if (!data || data.length === 0) {
                     container.innerHTML = '<p class="text-[11px] text-stone-400 text-center italic">Belum ada ucapan.</p>';
                     return;
                 }
-
                 container.innerHTML = "";
                 data.slice().reverse().forEach(row => {
                     const item = document.createElement('div');
@@ -614,9 +524,10 @@
             }
         }
 
+        window.addEventListener('DOMContentLoaded', fetchGuestbook);
+
         async function sendToSheetOnly(event) {
             event.preventDefault();
-            
             const btn = document.getElementById('submitBtn');
             const name = document.getElementById('senderName').value;
             const message = document.getElementById('senderMessage').value;
@@ -631,9 +542,7 @@
                     headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
                     body: JSON.stringify({ data: { nama: name, pesan: message, tanggal: currentDate } })
                 });
-
                 alert('Terima kasih! Ucapan dan doa restu Anda berhasil dikirim.');
-                
                 document.getElementById('senderMessage').value = "";
                 fetchGuestbook();
             } catch (error) {
@@ -644,14 +553,10 @@
             }
         }
 
-        // COUNTDOWN TIMER
         const weddingDate = new Date("Nov 21, 2026 08:00:00").getTime();
         const timer = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = weddingDate - now;
-
+            const distance = weddingDate - new Date().getTime();
             if (distance < 0) { clearInterval(timer); return; }
-
             document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
             document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
